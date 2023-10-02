@@ -130,7 +130,6 @@ def gecko() -> Body:
     :returns: the robot.
     """
     body = Body()
-
     body.core.left = ActiveHinge(0.0)
     body.core.left.attachment = Brick(0.0)
 
@@ -141,7 +140,7 @@ def gecko() -> Body:
     body.core.back.attachment = Brick(-np.pi / 2.0)
     body.core.back.attachment.front = ActiveHinge(np.pi / 2.0)
     body.core.back.attachment.front.attachment = Brick(-np.pi / 2.0)
-    body.core.back.attachment.front.attachment.left = ActiveHinge(0.0)
+    body.core.back.attachment.front.attachment.left = ActiveHinge( 0.0)
     body.core.back.attachment.front.attachment.left.attachment = Brick(0.0)
     body.core.back.attachment.front.attachment.right = ActiveHinge(0.0)
     body.core.back.attachment.front.attachment.right.attachment = Brick(0.0)

@@ -20,7 +20,7 @@ class ActiveHinge(Module):
     # motor specs: 9.4 kgfcm at 4.8V or 11 kgfcm at 6.0V
     # about 9.6667 kgfcm at 5.0V, our operating voltage
     # 9.6667 * 9.807 / 100
-    EFFORT = 0.948013269
+    EFFORT = 0.948
     # max velocity of servo
     # motor specs: 0.17 s/60deg at 4.8V or 0.14 s/60deg at 6.0V
     # about 0.1652 s/60deg at 5.0V, our operating voltage
@@ -28,7 +28,7 @@ class ActiveHinge(Module):
     VELOCITY = 6.338968228
 
     def __init__(
-        self, rotation: float | RightAngles, color: Color = Color(255, 255, 255, 255)
+        self, RANGE, rotation: float | RightAngles, color: Color = Color(255, 255, 255, 255)
     ):
         """
         Initialize this object.
@@ -41,6 +41,7 @@ class ActiveHinge(Module):
         else:
             rotation_converted = rotation
         super().__init__(1, rotation_converted, color)
+        self.RANGE = RANGE
 
     @property
     def attachment(self) -> Module | None:

@@ -7,6 +7,8 @@ from revolve2.simulation.actor import Actor, Collision, Joint, RigidBody
 from revolve2.simulation.running._results import ActorState
 
 from ._active_hinge import ActiveHinge
+from ._inactive_hinge import InActiveHinge
+from ._inactivelower import InActiveHingeLower
 from ._body_state import BodyState
 from ._brick import Brick
 from ._core import Core
@@ -79,6 +81,17 @@ class Body:
             raise NotFinalizedError()
         return _BrickFinder().find(self)
 
+    def find_inactivehinges(self) -> list[InActiveHinge]:
+        """
+        Find all bricks in the body.
+
+        :returns: A list of all bricks in the body
+        :raises NotFinalizedError: In case this body has not yet been finalized.
+        """
+        if not self.is_finalized:
+            raise NotFinalizedError()
+        return _InactiveHingeFinder().find(self)
+
     def grid_position(self, module: Module) -> Vector3:
         """
         Calculate the position of this module in a 3d grid with the core as center.
@@ -122,11 +135,30 @@ class Body:
                     rotation = Quaternion.from_eulers((0.0, 0.0, math.pi / 2.0 * 3))
                 else:
                     raise NotImplementedError()
+            elif isinstance(parent, InActiveHinge):
+                if child_index == InActiveHinge.FRONT:
+                    rotation = Quaternion.from_eulers((0.0, 0.0, 0.0))
+                elif child_index == InActiveHinge.LEFT:
+                    rotation = Quaternion.from_eulers((0.0, 0.0, math.pi / 2.0 * 1))
+                elif child_index == InActiveHinge.RIGHT:
+                    rotation = Quaternion.from_eulers((0.0, 0.0, math.pi / 2.0 * 3))
+                else:
+                    raise NotImplementedError()
+            elif isinstance(parent, InActiveHingeLower):
+                if child_index == InActiveHingeLower.FRONT:
+                    rotation = Quaternion.from_eulers((0.0, 0.0, 0.0))
+                elif child_index == InActiveHingeLower.LEFT:
+                    rotation = Quaternion.from_eulers((0.0, 0.0, math.pi / 2.0 * 1))
+                elif child_index == InActiveHingeLower.RIGHT:
+                    rotation = Quaternion.from_eulers((0.0, 0.0, math.pi / 2.0 * 3))
+                else:
+                    raise NotImplementedError()
             elif isinstance(parent, ActiveHinge):
                 if child_index == ActiveHinge.ATTACHMENT:
                     rotation = Quaternion()
                 else:
                     raise NotImplementedError()
+
             else:
                 raise NotImplementedError()
             position = rotation * position
@@ -278,6 +310,48 @@ class _GridMaker:
                     self._make_grid_recur(
                         child, position + rotation * Vector3([1.0, 0.0, 0.0]), rotation
                     )
+
+        elif isinstance(module, InActiveHinge):
+            for child_index, angle in [
+                (InActiveHinge.FRONT, 0.0),
+                (InActiveHinge.LEFT, math.pi / 2.0),
+                (InActiveHinge.RIGHT, math.pi / 2.0 * 3),
+            ]:
+                child = module.children[child_index]
+
+                if child is not None:
+                    assert np.isclose(child.rotation % (math.pi / 2.0), 0.0)
+
+                    rotation = (
+                        orientation
+                        * Quaternion.from_eulers([0.0, 0.0, angle])
+                        * Quaternion.from_eulers([child.rotation, 0, 0])
+                    )
+
+                    self._make_grid_recur(
+                        child, position + rotation * Vector3([1.0, 0.0, 0.0]), rotation
+                    )
+        elif isinstance(module, InActiveHingeLower):
+            for child_index, angle in [
+                (InActiveHinge.FRONT, 0.0),
+                (InActiveHinge.LEFT, math.pi / 2.0),
+                (InActiveHinge.RIGHT, math.pi / 2.0 * 3),
+            ]:
+                child = module.children[child_index]
+
+                if child is not None:
+                    assert np.isclose(child.rotation % (math.pi / 2.0), 0.0)
+
+                    rotation = (
+                        orientation
+                        * Quaternion.from_eulers([0.0, 0.0, angle])
+                        * Quaternion.from_eulers([child.rotation, 0, 0])
+                    )
+
+                    self._make_grid_recur(
+                        child, position + rotation * Vector3([1.0, 0.0, 0.0]), rotation
+                    )
+
         elif isinstance(module, ActiveHinge):
             child = module.children[ActiveHinge.ATTACHMENT]
 
@@ -343,6 +417,22 @@ class _ActorBuilder:
             )
         elif isinstance(module, ActiveHinge):
             self._make_active_hinge(
+                module,
+                body,
+                name_prefix,
+                attachment_offset,
+                orientation,
+            )
+        elif isinstance(module, InActiveHinge):
+            self._make_inactivehinge(
+                module,
+                body,
+                name_prefix,
+                attachment_offset,
+                orientation,
+            )
+        elif isinstance(module, InActiveHingeLower):
+            self._make_inactivehingeLower(
                 module,
                 body,
                 name_prefix,
@@ -448,6 +538,102 @@ class _ActorBuilder:
                     rotation,
                 )
 
+    def _make_inactivehinge(
+        self,
+        module: InActiveHinge,
+        body: RigidBody,
+        name_prefix: str,
+        attachment_point: Vector3,
+        orientation: Quaternion,
+    ) -> None:
+        BOUNDING_BOX = Vector3([0.018, 0.06288625, 0.0165891])  # meter
+        MASS = 0.030  # kg
+        CHILD_OFFSET = 0.06288625 / 2.0  # meter
+
+        position = attachment_point + orientation * Vector3(
+            [BOUNDING_BOX[0] / 2.0, 0.0, 0.0]
+        )
+
+        body.collisions.append(
+            Collision(
+                name=f"{name_prefix}_inactivehinge_collision",
+                position=position,
+                orientation=orientation,
+                mass=MASS,
+                bounding_box=BOUNDING_BOX,
+                color=module.color,
+            )
+        )
+
+        for name_suffix, child_index, angle in [
+            ("front", InActiveHinge.FRONT, 0.0),
+            ("left", InActiveHinge.LEFT, math.pi / 2.0),
+            ("right", InActiveHinge.RIGHT, math.pi / 2.0 * 3),
+        ]:
+            child = module.children[child_index]
+            if child is not None:
+                rotation = (
+                    orientation
+                    * Quaternion.from_eulers([0.0, -1.5, angle])
+                    * Quaternion.from_eulers([child.rotation, 0, 0])
+                )
+
+                self._make_module(
+                    child,
+                    body,
+                    f"{name_prefix}_{name_suffix}",
+                    position + rotation * Vector3([CHILD_OFFSET, 0.0, 0.0]),
+                    rotation,
+                )
+
+    def _make_inactivehingeLower(
+        self,
+        module: InActiveHingeLower,
+        body: RigidBody,
+        name_prefix: str,
+        attachment_point: Vector3,
+        orientation: Quaternion,
+    ) -> None:
+        BOUNDING_BOX = Vector3([0.0583, 0.06288625, 0.0165891])  # meter
+        MASS = 0.030  # kg
+        CHILD_OFFSET = 0.06288625 / 2.0  # meter
+
+        position = attachment_point + orientation * Vector3(
+            [BOUNDING_BOX[0] / 5.0, 0.0, 0.0]
+        )
+
+        body.collisions.append(
+            Collision(
+                name=f"{name_prefix}_inactivehingeLower_collision",
+                position=position,
+                orientation=orientation,
+                mass=MASS,
+                bounding_box=BOUNDING_BOX,
+                color=module.color,
+            )
+        )
+
+        for name_suffix, child_index, angle in [
+            ("front", InActiveHingeLower.FRONT, 0.0),
+            ("left", InActiveHingeLower.LEFT, math.pi / 2.0),
+            ("right", InActiveHingeLower.RIGHT, math.pi / 2.0 * 3),
+        ]:
+            child = module.children[child_index]
+            if child is not None:
+                rotation = (
+                    orientation
+                    * Quaternion.from_eulers([0.0, 0.0, angle])
+                    * Quaternion.from_eulers([child.rotation, 0, 0])
+                )
+
+                self._make_module(
+                    child,
+                    body,
+                    f"{name_prefix}_{name_suffix}",
+                    position + rotation * Vector3([CHILD_OFFSET, 0.0, 0.0]),
+                    rotation,
+                )
+
     def _make_active_hinge(
         self,
         module: ActiveHinge,
@@ -518,7 +704,7 @@ class _ActorBuilder:
                 Vector3([0.0, 1.0, 0.0]),
                 range=module.RANGE,
                 effort=module.EFFORT,
-                velocity=module.VELOCITY,
+                velocity=module.VELOCITY
             )
         )
         self.dof_ids.append(module.id)
@@ -588,6 +774,40 @@ class _BrickFinder:
     def _find_recur(self, module: Module) -> None:
         if isinstance(module, Brick):
             self._bricks.append(module)
+        for child in module.children:
+            if child is not None:
+                self._find_recur(child)
+
+class _InactiveHingeFinder:
+    _inactivehinge: list[InActiveHinge]
+
+    def __init__(self) -> None:
+        self._inactivehinge = []
+
+    def find(self, body: Body) -> list[InActiveHinge]:
+        self._find_recur(body.core)
+        return self._inactivehinge
+
+    def _find_recur(self, module: Module) -> None:
+        if isinstance(module, InActiveHinge):
+            self._inactivehinge.append(module)
+        for child in module.children:
+            if child is not None:
+                self._find_recur(child)
+
+class _InactiveHingeLowerFinder:
+    _inactivehingeLower: list[InActiveHingeLower]
+
+    def __init__(self) -> None:
+        self._inactivehingeLower = []
+
+    def find(self, body: Body) -> list[InActiveHingeLower]:
+        self._find_recur(body.core)
+        return self._inactivehingeLower
+
+    def _find_recur(self, module: Module) -> None:
+        if isinstance(module, InActiveHingeLower):
+            self._inactivehingeLower.append(module)
         for child in module.children:
             if child is not None:
                 self._find_recur(child)

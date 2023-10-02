@@ -14,6 +14,8 @@ from ._get_body_states_multiple_isolated_robots import (
     get_body_states_multiple_isolated_robots,
 )
 from ._get_body_states_single_robot import get_body_states_single_robot
+from ._inactive_hinge import InActiveHinge
+from ._inactivelower import InActiveHingeLower
 from ._modular_robot import ModularRobot
 from ._module import Module
 from ._morphological_measures import MorphologicalMeasures
@@ -26,6 +28,8 @@ __all__ = [
     "BodyState",
     "Brain",
     "Brick",
+    "InActiveHinge",
+    "InActiveHingeLower",
     "Core",
     "ModularRobot",
     "Module",

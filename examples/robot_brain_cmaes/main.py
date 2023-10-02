@@ -14,6 +14,8 @@ import logging
 
 import cma
 import config
+import pandas as pd
+import matplotlib.pyplot as plt
 from evaluator import Evaluator
 from revolve2.ci_group.logging import setup_logging
 from revolve2.ci_group.rng import seed_from_time
@@ -24,8 +26,8 @@ from revolve2.modular_robot.brains import (
 
 def main() -> None:
     """Run the experiment."""
-    setup_logging(file_name="log.txt")
-
+    setup_logging(file_name="log_90_up.txt")
+    fbest = []
     # Get the actor and cpg network structure for the body of choice.
     # The cpg network structure describes the connections between neurons in the cpg brain.
     _, cpg_network_structure = body_to_actor_and_cpg_network_structure_neighbour(
@@ -70,10 +72,16 @@ def main() -> None:
         opt.tell(solutions, fitnesses)
 
         logging.info(f"{opt.result.xbest=} {opt.result.fbest=}")
-
+        fbest.append(opt.result.fbest)
         # Increase the generation index counter.
         generation_index += 1
 
-
+    df = pd.DataFrame({'fbest':fbest})
+    df['fbest'] = df['fbest'] * -1
+    print(df)
+    df.to_csv('log_90_up')
+    df['fbest'].plot()
+    plt.show()
+    plt.savefig('fig_0.pdf')
 if __name__ == "__main__":
     main()

@@ -8,7 +8,7 @@ You learn:
 
 import asyncio
 
-from revolve2.ci_group import terrains
+from revolve2.ci_group import terrains, modular_robots
 from revolve2.ci_group.logging import setup_logging
 from revolve2.ci_group.rng import make_rng
 from revolve2.ci_group.simulation import create_batch_single_robot_standard
@@ -52,7 +52,7 @@ def main() -> None:
     rng = make_rng(RNG_SEED)
 
     # Create a body for the robot.
-    body = make_body()
+    body = modular_robots.zappa()
     # Create a brain for the robot.
     # We choose a 'CPG' brain with random parameters (the exact working will not be explained here).
     brain = BrainCpgNetworkNeighborRandom(rng)

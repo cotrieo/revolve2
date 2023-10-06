@@ -1,78 +1,209 @@
 import numpy as np
 import random
 from revolve2.modular_robot import ActiveHinge, Body, Brick, InActiveHingeLower, InActiveHinge, RightAngles
-
 import itertools
 import random
 import pickle
 
-def gecko_mod(angles) -> Body:
+
+def select_morph(morph):
+    if morph[0] == 1:
+        body = gecko_mod_front_left(morph[1])
+    elif morph[0] == 2:
+        body = gecko_mod_front_right(morph[1])
+    elif morph[0] == 3:
+        body = gecko_mod_core_back(morph[1])
+    elif morph[0] == 4:
+        body = gecko_mod_back(morph[1])
+    elif morph[0] == 5:
+        body = gecko_mod_back_left(morph[1])
+    else:
+        body = gecko_mod_back_right(morph[1])
+
+    return body
+
+
+def gecko_mod_front_left(degree) -> Body:
     """
     Get the gecko modular robot.
 
     :returns: the robot.
     """
     body = Body()
-    angle_core_left = angles[0]
-    angle_core_right = angles[1]
-    body.core.left = ActiveHinge((angle_core_left * (np.pi / 180)), 0.0)
-    body.core.left.attachment = Brick(0.0)
 
-    body.core.right = ActiveHinge((angle_core_right * (np.pi / 180)),  0.0)
+    body.core.left = InActiveHinge(degree, 0.0)
+    body.core.left.front = InActiveHingeLower(0.0)
+    body.core.left.front.front = Brick(0.0)
+
+    body.core.right = ActiveHinge(0.0)
     body.core.right.attachment = Brick(0.0)
 
-    angle_body_core = angles[2]
-    body.core.back = ActiveHinge((angle_body_core * (np.pi / 180)), np.pi / 2.0)
+    body.core.back = ActiveHinge(np.pi / 2.0)
     body.core.back.attachment = Brick(-np.pi / 2.0)
-    angle_body_core_back = angles[3]
-    body.core.back.attachment.front = ActiveHinge((angle_body_core_back * (np.pi / 180)),  np.pi / 2.0)
+
+    body.core.back.attachment.front = ActiveHinge(np.pi / 2.0)
     body.core.back.attachment.front.attachment = Brick(-np.pi / 2.0)
-    angle_back_left = angles[4]
-    # body.core.back.attachment.front.attachment.left = ActiveHinge((angle_back_left * (np.pi / 180)), 0.0)
-    body.core.back.attachment.front.attachment.left = InActiveHinge(0.0)
-    body.core.back.attachment.front.attachment.left.front = InActiveHingeLower(0.0)
-    body.core.back.attachment.front.attachment.left.front.front = Brick(0.0)
-    angle_back_right = angles[5]
-    body.core.back.attachment.front.attachment.right = ActiveHinge((angle_back_right * (np.pi / 180)), 0.0)
+
+    body.core.back.attachment.front.attachment.left = ActiveHinge(0.0)
+    body.core.back.attachment.front.attachment.left.attachment = Brick(0.0)
+
+    body.core.back.attachment.front.attachment.right = ActiveHinge(0.0)
     body.core.back.attachment.front.attachment.right.attachment = Brick(0.0)
 
     body.finalize()
     return body
 
 
-def make_morphologies(angles):
+def gecko_mod_front_right(degree) -> Body:
+    """
+    Get the gecko modular robot.
+
+    :returns: the robot.
+    """
+    body = Body()
+
+    body.core.left = ActiveHinge(0.0)
+    body.core.left.attachment = Brick(0.0)
+
+    body.core.right = InActiveHinge(degree, 0.0)
+    body.core.right.front = InActiveHingeLower(0.0)
+    body.core.right.front.front = Brick(0.0)
+
+    body.core.back = ActiveHinge(np.pi / 2.0)
+    body.core.back.attachment = Brick(-np.pi / 2.0)
+
+    body.core.back.attachment.front = ActiveHinge(np.pi / 2.0)
+    body.core.back.attachment.front.attachment = Brick(-np.pi / 2.0)
+
+    body.core.back.attachment.front.attachment.left = ActiveHinge(0.0)
+    body.core.back.attachment.front.attachment.left.attachment = Brick(0.0)
+
+    body.core.back.attachment.front.attachment.right = ActiveHinge(0.0)
+    body.core.back.attachment.front.attachment.right.attachment = Brick(0.0)
+
+    body.finalize()
+    return body
 
 
-    all_combinations = list(itertools.combinations_with_replacement(angles, 6))
-    good_combinations = []
+def gecko_mod_core_back(degree) -> Body:
+    """
+    Get the gecko modular robot.
+
+    :returns: the robot.
+    """
+    body = Body()
+    body.core.left = ActiveHinge(0.0)
+    body.core.left.attachment = Brick(0.0)
+
+    body.core.right = ActiveHinge(0.0)
+    body.core.right.attachment = Brick(0.0)
+
+    body.core.back = InActiveHinge(degree, np.pi / 2.0)
+    body.core.back.front = InActiveHingeLower(0.0)
+    body.core.back.front.front = Brick(-np.pi / 2.0)
 
 
-    for combi in all_combinations:
-        count = list(combi).count(1)
-        if count <= 3:
-            good_combinations.append(combi)
+    body.core.back.front.front.front = ActiveHinge(np.pi / 2.0)
+    body.core.back.front.front.front.attachment = Brick(-np.pi / 2.0)
+
+    body.core.back.front.front.front.attachment.left = ActiveHinge(0.0)
+    body.core.back.front.front.front.attachment.left.attachment = Brick(0.0)
+
+    body.core.back.front.front.front.attachment.right = ActiveHinge(0.0)
+    body.core.back.front.front.front.attachment.right.attachment = Brick(0.0)
+
+    body.finalize()
+    return body
 
 
-    morph_array = np.array(sorted(good_combinations))
+def gecko_mod_back(degree) -> Body:
+    """
+    Get the gecko modular robot.
 
-    # write to file
-    pickle_out = open("morphologies.pickle","wb")
-    pickle.dump(morph_array, pickle_out)
-    pickle_out.close()
+    :returns: the robot.
+    """
+    body = Body()
 
-    # check to confirm
-    pickle_in = open("morphologies.pickle","rb")
-    morphologies = pickle.load(pickle_in)
-    print(morphologies)
+    body.core.left = ActiveHinge(0.0)
+    body.core.left.attachment = Brick(0.0)
 
-# use this to create more morphologies
-angles = [1, 30, 45, 60, 90]
-# make_morphologies(angles)
+    body.core.right = ActiveHinge(0.0)
+    body.core.right.attachment = Brick(0.0)
 
-# set all the servos to a fixed degree, choose one random servo and change that
-# too many variations right now,
-# see the result even if there is a large jump (most interesting)
-# generate graph showing similarities
-# malfunction in how angle is stuck
-# distance in graph,
-# measure: how many malfunctions of the servos
+    body.core.back = ActiveHinge(np.pi / 2.0)
+    body.core.back.attachment = Brick(-np.pi / 2.0)
+
+    body.core.back.attachment.front = InActiveHinge(degree, np.pi / 2.0)
+    body.core.back.attachment.front.front = InActiveHingeLower(0.0)
+    body.core.back.attachment.front.front.front = Brick(-np.pi / 2.0)
+
+    body.core.back.attachment.front.front.front.left = ActiveHinge(0.0)
+    body.core.back.attachment.front.front.front.left.attachment = Brick(0.0)
+
+    body.core.back.attachment.front.front.front.right = ActiveHinge(0.0)
+    body.core.back.attachment.front.front.front.right.attachment = Brick(0.0)
+
+    body.finalize()
+    return body
+
+
+def gecko_mod_back_left(degree) -> Body:
+    """
+    Get the gecko modular robot.
+
+    :returns: the robot.
+    """
+    body = Body()
+
+    body.core.left = ActiveHinge(0.0)
+    body.core.left.attachment = Brick(0.0)
+
+    body.core.right = ActiveHinge(0.0)
+    body.core.right.attachment = Brick(0.0)
+
+    body.core.back = ActiveHinge(np.pi / 2.0)
+    body.core.back.attachment = Brick(-np.pi / 2.0)
+
+    body.core.back.attachment.front = ActiveHinge(np.pi / 2.0)
+    body.core.back.attachment.front.attachment = Brick(-np.pi / 2.0)
+
+    body.core.back.attachment.front.attachment.left = InActiveHinge(degree, 0.0)
+    body.core.back.attachment.front.attachment.left.front = InActiveHingeLower(0.0)
+    body.core.back.attachment.front.attachment.left.front.front = Brick(0.0)
+
+    body.core.back.attachment.front.attachment.right = ActiveHinge(0.0)
+    body.core.back.attachment.front.attachment.right.attachment = Brick(0.0)
+
+    body.finalize()
+    return body
+
+
+def gecko_mod_back_right(degree) -> Body:
+    """
+    Get the gecko modular robot.
+
+    :returns: the robot.
+    """
+    body = Body()
+
+    body.core.left = ActiveHinge(0.0)
+    body.core.left.attachment = Brick(0.0)
+
+    body.core.right = ActiveHinge(0.0)
+    body.core.right.attachment = Brick(0.0)
+
+    body.core.back = ActiveHinge(np.pi / 2.0)
+    body.core.back.attachment = Brick(-np.pi / 2.0)
+
+    body.core.back.attachment.front = ActiveHinge(np.pi / 2.0)
+    body.core.back.attachment.front.attachment = Brick(-np.pi / 2.0)
+
+    body.core.back.attachment.front.attachment.left = ActiveHinge(0.0)
+    body.core.back.attachment.front.attachment.left.attachment = Brick(0.0)
+
+    body.core.back.attachment.front.attachment.right = InActiveHinge(degree, 0.0)
+    body.core.back.attachment.front.attachment.right.front = InActiveHingeLower(0.0)
+    body.core.back.attachment.front.attachment.right.front.front = Brick(0.0)
+
+    body.finalize()
+    return body

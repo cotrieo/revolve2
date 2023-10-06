@@ -574,7 +574,7 @@ class _ActorBuilder:
             if child is not None:
                 rotation = (
                     orientation
-                    * Quaternion.from_eulers([0.0, -1.5, angle])
+                    * Quaternion.from_eulers([0.0, module.ANGLE, angle])
                     * Quaternion.from_eulers([child.rotation, 0, 0])
                 )
 
@@ -633,6 +633,7 @@ class _ActorBuilder:
                     position + rotation * Vector3([CHILD_OFFSET, 0.0, 0.0]),
                     rotation,
                 )
+
 
     def _make_active_hinge(
         self,

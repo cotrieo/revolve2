@@ -14,7 +14,7 @@ class InActiveHinge(Module):
     ATTACHMENT = 0
 
     def __init__(
-        self, rotation: float | RightAngles, color: Color = Color(50, 255, 255, 255)
+        self, ANGLE, rotation: float | RightAngles, color: Color = Color(50, 255, 255, 255)
     ):
         """
         Initialize this object.
@@ -27,14 +27,7 @@ class InActiveHinge(Module):
         else:
             rotation_converted = rotation
         super().__init__(3, rotation_converted, color)
-    # @property
-    # def attachment(self) -> Module | None:
-    #     """
-    #     Get the module attached to this hinge.
-    #
-    #     :returns: The attached module.
-    #     """
-    #     return self.children[self.ATTACHMENT]
+        self.ANGLE = ANGLE
 
     @property
     def front(self) -> Module | None:

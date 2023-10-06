@@ -7,6 +7,7 @@ from ._right_angles import RightAngles
 class InActiveHingeLower(Module):
     """An inactive hinge module for a modular robot."""
 
+
     FRONT = 0
     RIGHT = 1
     LEFT = 2
@@ -36,7 +37,6 @@ class InActiveHingeLower(Module):
         :returns: The attached module.
         """
         return self.children[self.FRONT]
-
     @front.setter
     def front(self, module: Module) -> None:
         """
@@ -81,3 +81,4 @@ class InActiveHingeLower(Module):
         :param module: The module to attach.
         """
         self.children[self.LEFT] = module
+

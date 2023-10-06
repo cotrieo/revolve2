@@ -28,7 +28,7 @@ class ActiveHinge(Module):
     VELOCITY = 6.338968228
 
     def __init__(
-        self, RANGE, rotation: float | RightAngles, color: Color = Color(255, 255, 255, 255)
+        self, rotation: float | RightAngles, color: Color = Color(255, 255, 255, 255)
     ):
         """
         Initialize this object.
@@ -41,7 +41,7 @@ class ActiveHinge(Module):
         else:
             rotation_converted = rotation
         super().__init__(1, rotation_converted, color)
-        self.RANGE = RANGE
+
 
     @property
     def attachment(self) -> Module | None:

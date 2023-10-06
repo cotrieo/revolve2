@@ -6,5 +6,5 @@ from revolve2.examples.evaluate_single_robot import modified
 NUM_SIMULATORS = 4
 INITIAL_STD = 0.5
 NUM_GENERATIONS = 150
-angles = [60, 60, 60, 60, 60, 60, 60]
-BODY = modified.gecko_mod(angles)
+# angles = [60, 60, 60, 60, 60, 60, 60]
+# BODY = modified.gecko_mod(angles)

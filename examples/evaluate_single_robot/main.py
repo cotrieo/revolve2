@@ -18,6 +18,7 @@ from revolve2.modular_robot import ModularRobot, get_body_states_single_robot
 from revolve2.modular_robot.brains import BrainCpgNetworkNeighborRandom, BrainCpgNetworkNeighbor, BrainCpgNetworkStatic
 from revolve2.simulators.mujoco import LocalRunner
 import random
+import numpy as np
 
 def main(morph) -> None:
     """Run the simulation."""
@@ -65,10 +66,21 @@ def main(morph) -> None:
 pickle_in = open("morphologies.pickle","rb")
 morphologies = pickle.load(pickle_in)
 
+def generate_morphologies(parameter1_range, parameter2_range):
+    # parameter1_values = np.arange(parameter1_range[0], parameter1_range[1], step_sizes[0])
+    # parameter2_values = np.arange(parameter2_range[0], parameter2_range[1], step_sizes[1])
 
-if __name__ == "__main__":
-    ind = random.randint(0, len(morphologies)-1)
-    morph = list([60,60,60,60,60,1])
-    print('Morphology no: {}'.format(ind))
-    print('angle_core_left: {},\nangle_core_right: {},\nangle_body_core: {},\nangle_body_core_back: {},\nangle_back_left: {},\nangle_back_right: {}'.format(*morph))
+    morphologies = np.array(np.meshgrid(parameter1_range, parameter2_range)).T.reshape(-1, 2)
+    print(len(morphologies))
+    return morphologies
+
+
+servos = [1, 2, 3, 4, 5, 6]
+angles = [-1.5, -1.3, -0.7, -0.5, -0.3, 0.0, 0.3, 0.5, 0.7, 1.3, 1.5]
+
+morphs = generate_morphologies(servos, angles)
+
+# if __name__ == "__main__":
+for morph in morphs:
+    print(morph)
     main(morph)

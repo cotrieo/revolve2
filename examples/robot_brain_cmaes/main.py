@@ -23,15 +23,15 @@ from revolve2.modular_robot.brains import (
     body_to_actor_and_cpg_network_structure_neighbour,
 )
 
-
-def main() -> None:
+from revolve2.examples.evaluate_single_robot import modified
+def main(BODY) -> None:
     """Run the experiment."""
-    setup_logging(file_name="log_90_up.txt")
+    setup_logging(file_name="log_core_up.txt")
     fbest = []
     # Get the actor and cpg network structure for the body of choice.
     # The cpg network structure describes the connections between neurons in the cpg brain.
     _, cpg_network_structure = body_to_actor_and_cpg_network_structure_neighbour(
-        config.BODY
+        modified.select_morph(BODY)
     )
 
     # Intialize the evaluator that will be used to evaluate robots.
@@ -39,7 +39,7 @@ def main() -> None:
         headless=True,
         num_simulators=config.NUM_SIMULATORS,
         cpg_network_structure=cpg_network_structure,
-        body=config.BODY,
+        body=modified.select_morph(BODY),
     )
 
     # Initial parameter values for the brain.
@@ -84,4 +84,4 @@ def main() -> None:
     plt.show()
     plt.savefig('fig_0.pdf')
 if __name__ == "__main__":
-    main()
+    main([1, 0.3])

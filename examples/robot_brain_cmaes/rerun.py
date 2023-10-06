@@ -7,6 +7,7 @@ from revolve2.ci_group.logging import setup_logging
 from revolve2.modular_robot.brains import (
     body_to_actor_and_cpg_network_structure_neighbour,
 )
+from revolve2.examples.evaluate_single_robot import modified
 
 # These are set of parameters that we optimized using CMA-ES.
 # You can copy your own parameters from the optimization output log.
@@ -28,33 +29,47 @@ from revolve2.modular_robot.brains import (
 #     ]
 # )
 
-# PARAMS = np.array([ 0.9772014 , -0.46552178, -0.77052453,  0.94828452, -0.66410415,
-#         0.94865957,  0.92837354,  0.99174603,  0.94921237, -0.99728289])
+# PARAMS = np.array([-0.44375534, 0.99499762, -0.60628628, 0.80725963, -0.91015117,
+#                    0.97603211, -0.99989902, 0.53095133, 0.99875929, -0.92524671])
 
-# PARAMS = np.array([ 0.43256757, -0.08451429,  0.43358328,  0.99255331, -0.99928277,
-#         0.99948187, -0.99241477,  0.89694624,  0.99917603, -0.99985895])  # right back 30 degree down value = 0.5
+# PARAMS = np.array([ 0.89360297,  0.17863396,  0.30116421,  0.37762144, -0.18592681,
+#         0.79980659])
 
-# PARAMS = np.array([ 0.99640073,  0.13683136, -0.26971396,  0.55017667,  0.97049723,
-#        -0.98738748,  0.76562931, -0.47012102, -0.99898643,  0.98406012]) # right back 0 degree blocked = value = 0.0
-
-PARAMS = np.array([-0.44375534,  0.99499762, -0.60628628,  0.80725963, -0.91015117,
-        0.97603211, -0.99989902,  0.53095133,  0.99875929, -0.92524671])
-def main() -> None:
+PARAMS = np.array([ 0.92500359,  0.97976839,  0.38624175,  0.52012928, -0.31824363,
+                    0.79952226, -0.37602673,  0.13259782,  0.89573339])
+def main(BODY) -> None:
     """Perform the rerun."""
     setup_logging()
 
     _, cpg_network_structure = body_to_actor_and_cpg_network_structure_neighbour(
-        config.BODY
+        # config.BODY
+        modified.select_morph(BODY)
     )
 
     evaluator = Evaluator(
         headless=False,
         num_simulators=1,
         cpg_network_structure=cpg_network_structure,
-        body=config.BODY,
+        body=modified.select_morph(BODY)
+        # body=config.BODY,
     )
-    evaluator.evaluate([PARAMS])
+    fitness = evaluator.evaluate([PARAMS])
+    return fitness[0]
 
 
+def generate_morphologies(parameter1_range, parameter2_range):
+    morphologies = np.array(np.meshgrid(parameter1_range, parameter2_range)).T.reshape(-1, 2)
+    return morphologies
+
+servos = [1, 2, 4, 5, 6]
+angles = [-1.5, -1.3, -0.7, -0.5, -0.3, 0.0, 0.3, 0.5, 0.7, 1.3, 1.5]
+
+morphs = generate_morphologies(servos, angles)
+fitnesses = []
 if __name__ == "__main__":
-    main()
+    # for morph in morphs:
+    #     fitness = main(morph)
+    #     print(morph, fitness)
+    #     fitnesses.append([morph, fitness])
+    # print(fitnesses)
+    main([4, 0.3])

@@ -11,8 +11,9 @@ You learn:
 """
 
 import logging
-
+import numpy as np
 import cma
+import pickle
 import config
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -26,13 +27,16 @@ from revolve2.modular_robot.brains import (
 from revolve2.examples.evaluate_single_robot import modified
 def main(BODY) -> None:
     """Run the experiment."""
-    setup_logging(file_name="log_core_up.txt")
+    setup_logging(file_name="log_{}.txt".format(BODY))
     fbest = []
     # Get the actor and cpg network structure for the body of choice.
     # The cpg network structure describes the connections between neurons in the cpg brain.
-    _, cpg_network_structure = body_to_actor_and_cpg_network_structure_neighbour(
-        modified.select_morph(BODY)
-    )
+    # _, cpg_network_structure = body_to_actor_and_cpg_network_structure_neighbour(
+    #     modified.select_morph(BODY)
+    # )
+
+    file = open('test', 'rb')
+    cpg_network_structure = pickle.load(file)
 
     # Intialize the evaluator that will be used to evaluate robots.
     evaluator = Evaluator(
@@ -79,9 +83,31 @@ def main(BODY) -> None:
     df = pd.DataFrame({'fbest':fbest})
     df['fbest'] = df['fbest'] * -1
     print(df)
-    df.to_csv('log_90_up')
+    df.to_csv('log_{}.csv'.format(morph))
     df['fbest'].plot()
+    plt.title('Morphology: {}'.format(morph))
+    plt.savefig('fig_{}.pdf'.format(morph))
     plt.show()
-    plt.savefig('fig_0.pdf')
+def generate_morphologies(parameter1_range, parameter2_range):
+    morphologies = np.array(np.meshgrid(parameter1_range, parameter2_range)).T.reshape(-1, 2)
+    return morphologies
+
+servos = [1, 2, 3, 4, 5, 6]
+# angles = [-1.5, -1.3, -0.7, -0.5, -0.3, 0.0, 0.3, 0.5, 0.7, 1.3, 1.5]
+angles = [-1.5, -0.5, 0.0, 0.5, 1.5]
+morphs = generate_morphologies(servos, angles)
+morphs = np.append(morphs, [0, 0.0])
+morphs = morphs.reshape((31,2))
+
+fitnesses = []
+bodies = []
 if __name__ == "__main__":
-    main([1, 0.3])
+    # for morph in morphs:
+    fitness = main([0, 0.0])
+    #     print(morph, fitness)
+    #     fitnesses.append(fitness)
+    #     bodies.append(morph)
+    # # print(fitnesses)
+    # df = pd.DataFrame({'morphology': bodies, 'fitness': fitnesses})
+    # df.to_csv('feasible.csv')
+

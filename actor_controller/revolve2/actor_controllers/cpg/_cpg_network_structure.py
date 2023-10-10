@@ -123,6 +123,7 @@ class CpgNetworkStructure:
         """
         assert len(params) == self.num_connections
 
+
         internal_connection_weights = {
             cpg: weight for cpg, weight in zip(self.cpgs, params[: self.num_cpgs])
         }

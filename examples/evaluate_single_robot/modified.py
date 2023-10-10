@@ -17,11 +17,41 @@ def select_morph(morph):
         body = gecko_mod_back(morph[1])
     elif morph[0] == 5:
         body = gecko_mod_back_left(morph[1])
-    else:
+    elif morph[0] == 6:
         body = gecko_mod_back_right(morph[1])
+    else:
+        body = gecko_mod()
 
     return body
 
+def gecko_mod() -> Body:
+    """
+    Get the gecko modular robot.
+
+    :returns: the robot.
+    """
+    body = Body()
+
+    body.core.left = ActiveHinge(0.0)
+    body.core.left.attachment = Brick(0.0)
+
+    body.core.right = ActiveHinge(0.0)
+    body.core.right.attachment = Brick(0.0)
+
+    body.core.back = ActiveHinge(np.pi / 2.0)
+    body.core.back.attachment = Brick(-np.pi / 2.0)
+
+    body.core.back.attachment.front = ActiveHinge(np.pi / 2.0)
+    body.core.back.attachment.front.attachment = Brick(-np.pi / 2.0)
+
+    body.core.back.attachment.front.attachment.left = ActiveHinge(0.0)
+    body.core.back.attachment.front.attachment.left.attachment = Brick(0.0)
+
+    body.core.back.attachment.front.attachment.right = ActiveHinge(0.0)
+    body.core.back.attachment.front.attachment.right.attachment = Brick(0.0)
+
+    body.finalize()
+    return body
 
 def gecko_mod_front_left(degree) -> Body:
     """

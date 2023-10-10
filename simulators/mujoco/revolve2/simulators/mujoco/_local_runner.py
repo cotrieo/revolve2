@@ -55,6 +55,7 @@ class LocalRunner(Runner):
         headless: bool = False,
         start_paused: bool = False,
         num_simulators: int = 1,
+        all_joints: bool = True
     ):
         """
         Initialize this object.
@@ -74,6 +75,7 @@ class LocalRunner(Runner):
         self._headless = headless
         self._start_paused = start_paused
         self._num_simulators = num_simulators
+        self.all_joints = all_joints
 
     @classmethod
     def _run_environment(
@@ -99,6 +101,14 @@ class LocalRunner(Runner):
             for posed_actor in env_descr.actors
             for dof_state in posed_actor.dof_states
         ]
+        # initial_targets = initial_targets[:-1]
+        # print(model.njnt)
+        # print(len(initial_targets))
+        if len(initial_targets) != model.njnt -1:
+            initial_targets = initial_targets[:-1]
+        else:
+            initial_targets = initial_targets
+
         # Explicitly set the initial angle of every joint to 0.0.
         cls._set_dof_state(data, model, [0.0 for _ in initial_targets])
         # Set each degree of freedom target.
@@ -154,6 +164,13 @@ class LocalRunner(Runner):
                     for actor_target in actor_targets
                     for target in actor_target[1]
                 ]
+                if len(targets) != model.njnt -1:
+                    targets = targets[:-1]
+                else:
+                    targets = targets
+                # targets = targets[:-1]
+                # print(model.njnt)
+                # print(len(targets))
                 cls._set_dof_targets(data, targets)
 
             # sample state if it is time

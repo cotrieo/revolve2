@@ -1,6 +1,7 @@
 from revolve2.actor_controllers.cpg import CpgNetworkStructure, CpgPair
 from revolve2.modular_robot import ActiveHinge, Body
 from revolve2.simulation.actor import Actor
+import pickle
 
 
 def body_to_actor_and_cpg_network_structure_neighbour(
@@ -21,7 +22,6 @@ def body_to_actor_and_cpg_network_structure_neighbour(
         active_hinges
 
     )
-    print(cpg_network_structure)
     return actor, cpg_network_structure
 
 
@@ -54,5 +54,6 @@ def active_hinges_to_cpg_network_structure_neighbor(
         connections = connections.union(
             [CpgPair(cpg, active_hinge_to_cpg[neighbour]) for neighbour in neighbours]
         )
+
 
     return CpgNetworkStructure(cpgs, connections)

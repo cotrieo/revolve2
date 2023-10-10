@@ -7,7 +7,7 @@ import numpy as np
 import numpy.typing as npt
 from revolve2.actor_controllers.cpg import CpgNetworkStructure
 from revolve2.ci_group import fitness_functions, terrains
-from revolve2.ci_group.simulation import create_batch_multiple_isolated_robots_standard
+from revolve2.ci_group.simulation import create_batch_multiple_isolated_robots_standard, create_batch_single_robot_standard
 from revolve2.modular_robot import (
     Body,
     ModularRobot,
@@ -77,6 +77,9 @@ class Evaluator:
         batch = create_batch_multiple_isolated_robots_standard(
             robots, [self._terrain for _ in solutions]
         )
+        # batch = create_batch_single_robot_standard(
+        #     robots, [self._terrain for _ in solutions]
+        # )
         results = asyncio.run(self._runner.run_batch(batch))
 
         body_states = get_body_states_multiple_isolated_robots(

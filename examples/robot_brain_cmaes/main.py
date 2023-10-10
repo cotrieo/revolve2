@@ -83,10 +83,10 @@ def main(BODY) -> None:
     df = pd.DataFrame({'fbest':fbest})
     df['fbest'] = df['fbest'] * -1
     print(df)
-    df.to_csv('log_{}.csv'.format(morph))
+    df.to_csv('log_{}.csv'.format(BODY))
     df['fbest'].plot()
-    plt.title('Morphology: {}'.format(morph))
-    plt.savefig('fig_{}.pdf'.format(morph))
+    plt.title('Morphology: {}'.format(BODY))
+    plt.savefig('fig_{}.pdf'.format(BODY))
     plt.show()
 def generate_morphologies(parameter1_range, parameter2_range):
     morphologies = np.array(np.meshgrid(parameter1_range, parameter2_range)).T.reshape(-1, 2)

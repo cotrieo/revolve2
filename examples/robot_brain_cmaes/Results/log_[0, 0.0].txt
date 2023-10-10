@@ -1,0 +1,1576 @@
+=======================================
+=======================================
+=======================================
+New log starts here.
+=======================================
+=======================================
+=======================================
+Rng seed: 1696927220453981
+Start optimization process.
+Generation 1 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.75594185, -0.11220432,  0.49348232,  0.50441067,  0.93852136,
+        0.61692368,  0.81988402,  0.07666742,  0.30115021,  0.61532308,
+        0.40017353,  0.22885031,  0.45034508]) opt.result.fbest=-0.3285192309658916
+Generation 2 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.94818872,  0.34186373,  0.95795111,  0.70899444,  0.53664169,
+        0.35328148,  0.12548315,  0.40336509,  0.59810893,  0.47803762,
+       -0.55221781, -0.00888639,  0.94815481]) opt.result.fbest=-0.6243303133946573
+Generation 3 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.98052352,  0.70548347,  0.80065026,  0.47084871,  0.84296554,
+        0.98799552,  0.42257613,  0.71484857,  0.65956616,  0.29288837,
+       -0.00672966, -0.65524273,  0.74369039]) opt.result.fbest=-1.1119271349582065
+Generation 4 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.43912087,  0.38299152,  0.45629023,  0.76113609,  0.99089176,
+        0.14317361,  0.19183278,  0.93980995,  0.75256276,  0.61614842,
+       -0.36444018, -0.84827435,  0.59757095]) opt.result.fbest=-1.212654596856747
+Generation 5 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.43912087,  0.38299152,  0.45629023,  0.76113609,  0.99089176,
+        0.14317361,  0.19183278,  0.93980995,  0.75256276,  0.61614842,
+       -0.36444018, -0.84827435,  0.59757095]) opt.result.fbest=-1.212654596856747
+Generation 6 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.4217225 ,  0.22252807,  0.93988713,  0.79063398,  0.29965439,
+        0.08697362,  0.19348313,  0.21823813,  0.94070674,  0.58394006,
+       -0.38572227, -0.9672338 ,  0.99875898]) opt.result.fbest=-1.3000244690818414
+Generation 7 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.54296616,  0.50206417,  0.91059502, -0.27492585,  0.65899033,
+       -0.73877578,  0.23834316,  0.08117025,  0.90578091,  0.20766132,
+       -0.62778923, -0.43194113,  0.84903943]) opt.result.fbest=-1.5054261778366684
+Generation 8 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.54296616,  0.50206417,  0.91059502, -0.27492585,  0.65899033,
+       -0.73877578,  0.23834316,  0.08117025,  0.90578091,  0.20766132,
+       -0.62778923, -0.43194113,  0.84903943]) opt.result.fbest=-1.5054261778366684
+Generation 9 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.54296616,  0.50206417,  0.91059502, -0.27492585,  0.65899033,
+       -0.73877578,  0.23834316,  0.08117025,  0.90578091,  0.20766132,
+       -0.62778923, -0.43194113,  0.84903943]) opt.result.fbest=-1.5054261778366684
+Generation 10 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.54296616,  0.50206417,  0.91059502, -0.27492585,  0.65899033,
+       -0.73877578,  0.23834316,  0.08117025,  0.90578091,  0.20766132,
+       -0.62778923, -0.43194113,  0.84903943]) opt.result.fbest=-1.5054261778366684
+Generation 11 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.54147142, -0.21348389, -0.21306136, -0.51340073,  0.98794052,
+       -0.28797954,  0.58821443,  0.99958629,  0.55739409,  0.99833076,
+       -0.66668489, -0.97430018,  0.98514698]) opt.result.fbest=-1.7374064207944122
+Generation 12 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.54147142, -0.21348389, -0.21306136, -0.51340073,  0.98794052,
+       -0.28797954,  0.58821443,  0.99958629,  0.55739409,  0.99833076,
+       -0.66668489, -0.97430018,  0.98514698]) opt.result.fbest=-1.7374064207944122
+Generation 13 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.54147142, -0.21348389, -0.21306136, -0.51340073,  0.98794052,
+       -0.28797954,  0.58821443,  0.99958629,  0.55739409,  0.99833076,
+       -0.66668489, -0.97430018,  0.98514698]) opt.result.fbest=-1.7374064207944122
+Generation 14 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.85795156,  0.10786296,  0.35768406, -0.48023669,  0.16665841,
+       -0.63444587,  0.18826086,  0.37481208,  0.72934709,  0.89755644,
+       -0.29571052, -0.9945593 ,  0.78973087]) opt.result.fbest=-1.9113347354198273
+Generation 15 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 16 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 17 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 18 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 19 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 20 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 21 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 22 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 23 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 24 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 25 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 26 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 27 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 28 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 29 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 30 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 31 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 32 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 33 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 34 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 35 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 36 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 37 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 38 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 39 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 40 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 41 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 42 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 43 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 44 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 45 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 46 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 47 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 48 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 49 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 50 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 51 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 52 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 53 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 54 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 55 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 56 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 57 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 58 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 59 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 60 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 61 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 62 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 63 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 64 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 65 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 66 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 67 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 68 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 69 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 70 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 71 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 72 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 73 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 74 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 75 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 76 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 77 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 78 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 79 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 80 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 81 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 82 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 83 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 84 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 85 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 86 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 87 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 88 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 89 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 90 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 91 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 92 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 93 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 94 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 95 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 96 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 97 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 98 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 99 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 100 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 101 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 102 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 103 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 104 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 105 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 106 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 107 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 108 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 109 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 110 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 111 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 112 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 113 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 114 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 115 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 116 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 117 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 118 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 119 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 120 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 121 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 122 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 123 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 124 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 125 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 126 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 127 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 128 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 129 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 130 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 131 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 132 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.76168078, -0.01105339,  0.43891894, -0.61839468, -0.11038734,
+       -0.82993771,  0.77035896, -0.00589387,  0.94125144,  0.79890835,
+       -0.66811469, -0.9029614 ,  0.98655999]) opt.result.fbest=-3.142491100304957
+Generation 133 / 500.
+Starting simulation batch with mujoco.
+=======================================
+=======================================
+=======================================
+New log starts here.
+=======================================
+=======================================
+=======================================
+Rng seed: 1696928154068764
+Start optimization process.
+Generation 1 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.85988791,  0.54514995, -0.20192274,  0.32591531,  0.21904915,
+       -0.0503423 , -0.80016525,  0.70217298, -0.57795178, -0.13574392,
+        0.62104719,  0.17380999, -0.04719654]) opt.result.fbest=-0.93847186828881
+Generation 2 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.85988791,  0.54514995, -0.20192274,  0.32591531,  0.21904915,
+       -0.0503423 , -0.80016525,  0.70217298, -0.57795178, -0.13574392,
+        0.62104719,  0.17380999, -0.04719654]) opt.result.fbest=-0.93847186828881
+Generation 3 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.85988791,  0.54514995, -0.20192274,  0.32591531,  0.21904915,
+       -0.0503423 , -0.80016525,  0.70217298, -0.57795178, -0.13574392,
+        0.62104719,  0.17380999, -0.04719654]) opt.result.fbest=-0.93847186828881
+Generation 4 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.85988791,  0.54514995, -0.20192274,  0.32591531,  0.21904915,
+       -0.0503423 , -0.80016525,  0.70217298, -0.57795178, -0.13574392,
+        0.62104719,  0.17380999, -0.04719654]) opt.result.fbest=-0.93847186828881
+Generation 5 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.85988791,  0.54514995, -0.20192274,  0.32591531,  0.21904915,
+       -0.0503423 , -0.80016525,  0.70217298, -0.57795178, -0.13574392,
+        0.62104719,  0.17380999, -0.04719654]) opt.result.fbest=-0.93847186828881
+Generation 6 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.85988791,  0.54514995, -0.20192274,  0.32591531,  0.21904915,
+       -0.0503423 , -0.80016525,  0.70217298, -0.57795178, -0.13574392,
+        0.62104719,  0.17380999, -0.04719654]) opt.result.fbest=-0.93847186828881
+Generation 7 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.85988791,  0.54514995, -0.20192274,  0.32591531,  0.21904915,
+       -0.0503423 , -0.80016525,  0.70217298, -0.57795178, -0.13574392,
+        0.62104719,  0.17380999, -0.04719654]) opt.result.fbest=-0.93847186828881
+Generation 8 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.85988791,  0.54514995, -0.20192274,  0.32591531,  0.21904915,
+       -0.0503423 , -0.80016525,  0.70217298, -0.57795178, -0.13574392,
+        0.62104719,  0.17380999, -0.04719654]) opt.result.fbest=-0.93847186828881
+Generation 9 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.92571966,  0.88981522,  0.21835734,  0.50216408,  0.45576224,
+       -0.83283344,  0.25685858,  0.61598594,  0.45040284,  0.84336474,
+       -0.53284587, -0.98863349, -0.83481116]) opt.result.fbest=-1.2527218353456322
+Generation 10 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.50288008, -0.0209997 ,  0.73067968,  0.16151251, -0.11348716,
+       -0.93949356,  0.99979167,  0.88982509,  0.40516888,  0.87879412,
+       -0.68797047, -0.72988558, -0.02977329]) opt.result.fbest=-1.6710940993975207
+Generation 11 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.50288008, -0.0209997 ,  0.73067968,  0.16151251, -0.11348716,
+       -0.93949356,  0.99979167,  0.88982509,  0.40516888,  0.87879412,
+       -0.68797047, -0.72988558, -0.02977329]) opt.result.fbest=-1.6710940993975207
+Generation 12 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.50288008, -0.0209997 ,  0.73067968,  0.16151251, -0.11348716,
+       -0.93949356,  0.99979167,  0.88982509,  0.40516888,  0.87879412,
+       -0.68797047, -0.72988558, -0.02977329]) opt.result.fbest=-1.6710940993975207
+Generation 13 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.50288008, -0.0209997 ,  0.73067968,  0.16151251, -0.11348716,
+       -0.93949356,  0.99979167,  0.88982509,  0.40516888,  0.87879412,
+       -0.68797047, -0.72988558, -0.02977329]) opt.result.fbest=-1.6710940993975207
+Generation 14 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.50288008, -0.0209997 ,  0.73067968,  0.16151251, -0.11348716,
+       -0.93949356,  0.99979167,  0.88982509,  0.40516888,  0.87879412,
+       -0.68797047, -0.72988558, -0.02977329]) opt.result.fbest=-1.6710940993975207
+Generation 15 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.50288008, -0.0209997 ,  0.73067968,  0.16151251, -0.11348716,
+       -0.93949356,  0.99979167,  0.88982509,  0.40516888,  0.87879412,
+       -0.68797047, -0.72988558, -0.02977329]) opt.result.fbest=-1.6710940993975207
+Generation 16 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.50288008, -0.0209997 ,  0.73067968,  0.16151251, -0.11348716,
+       -0.93949356,  0.99979167,  0.88982509,  0.40516888,  0.87879412,
+       -0.68797047, -0.72988558, -0.02977329]) opt.result.fbest=-1.6710940993975207
+Generation 17 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.50288008, -0.0209997 ,  0.73067968,  0.16151251, -0.11348716,
+       -0.93949356,  0.99979167,  0.88982509,  0.40516888,  0.87879412,
+       -0.68797047, -0.72988558, -0.02977329]) opt.result.fbest=-1.6710940993975207
+Generation 18 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.50288008, -0.0209997 ,  0.73067968,  0.16151251, -0.11348716,
+       -0.93949356,  0.99979167,  0.88982509,  0.40516888,  0.87879412,
+       -0.68797047, -0.72988558, -0.02977329]) opt.result.fbest=-1.6710940993975207
+Generation 19 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.50288008, -0.0209997 ,  0.73067968,  0.16151251, -0.11348716,
+       -0.93949356,  0.99979167,  0.88982509,  0.40516888,  0.87879412,
+       -0.68797047, -0.72988558, -0.02977329]) opt.result.fbest=-1.6710940993975207
+Generation 20 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.50288008, -0.0209997 ,  0.73067968,  0.16151251, -0.11348716,
+       -0.93949356,  0.99979167,  0.88982509,  0.40516888,  0.87879412,
+       -0.68797047, -0.72988558, -0.02977329]) opt.result.fbest=-1.6710940993975207
+Generation 21 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.50288008, -0.0209997 ,  0.73067968,  0.16151251, -0.11348716,
+       -0.93949356,  0.99979167,  0.88982509,  0.40516888,  0.87879412,
+       -0.68797047, -0.72988558, -0.02977329]) opt.result.fbest=-1.6710940993975207
+Generation 22 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.50288008, -0.0209997 ,  0.73067968,  0.16151251, -0.11348716,
+       -0.93949356,  0.99979167,  0.88982509,  0.40516888,  0.87879412,
+       -0.68797047, -0.72988558, -0.02977329]) opt.result.fbest=-1.6710940993975207
+Generation 23 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.50288008, -0.0209997 ,  0.73067968,  0.16151251, -0.11348716,
+       -0.93949356,  0.99979167,  0.88982509,  0.40516888,  0.87879412,
+       -0.68797047, -0.72988558, -0.02977329]) opt.result.fbest=-1.6710940993975207
+Generation 24 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.50288008, -0.0209997 ,  0.73067968,  0.16151251, -0.11348716,
+       -0.93949356,  0.99979167,  0.88982509,  0.40516888,  0.87879412,
+       -0.68797047, -0.72988558, -0.02977329]) opt.result.fbest=-1.6710940993975207
+Generation 25 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.50288008, -0.0209997 ,  0.73067968,  0.16151251, -0.11348716,
+       -0.93949356,  0.99979167,  0.88982509,  0.40516888,  0.87879412,
+       -0.68797047, -0.72988558, -0.02977329]) opt.result.fbest=-1.6710940993975207
+Generation 26 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.50288008, -0.0209997 ,  0.73067968,  0.16151251, -0.11348716,
+       -0.93949356,  0.99979167,  0.88982509,  0.40516888,  0.87879412,
+       -0.68797047, -0.72988558, -0.02977329]) opt.result.fbest=-1.6710940993975207
+Generation 27 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.50288008, -0.0209997 ,  0.73067968,  0.16151251, -0.11348716,
+       -0.93949356,  0.99979167,  0.88982509,  0.40516888,  0.87879412,
+       -0.68797047, -0.72988558, -0.02977329]) opt.result.fbest=-1.6710940993975207
+Generation 28 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.70512397,  0.20386095,  0.38454804,  0.01239188, -0.48654742,
+       -0.89764252,  0.51659967, -0.02060173,  0.79679308,  0.82630747,
+       -0.44791536, -0.85343891,  0.25303966]) opt.result.fbest=-2.4767083635054323
+Generation 29 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.70512397,  0.20386095,  0.38454804,  0.01239188, -0.48654742,
+       -0.89764252,  0.51659967, -0.02060173,  0.79679308,  0.82630747,
+       -0.44791536, -0.85343891,  0.25303966]) opt.result.fbest=-2.4767083635054323
+Generation 30 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.70512397,  0.20386095,  0.38454804,  0.01239188, -0.48654742,
+       -0.89764252,  0.51659967, -0.02060173,  0.79679308,  0.82630747,
+       -0.44791536, -0.85343891,  0.25303966]) opt.result.fbest=-2.4767083635054323
+Generation 31 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.70512397,  0.20386095,  0.38454804,  0.01239188, -0.48654742,
+       -0.89764252,  0.51659967, -0.02060173,  0.79679308,  0.82630747,
+       -0.44791536, -0.85343891,  0.25303966]) opt.result.fbest=-2.4767083635054323
+Generation 32 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.70512397,  0.20386095,  0.38454804,  0.01239188, -0.48654742,
+       -0.89764252,  0.51659967, -0.02060173,  0.79679308,  0.82630747,
+       -0.44791536, -0.85343891,  0.25303966]) opt.result.fbest=-2.4767083635054323
+Generation 33 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.70512397,  0.20386095,  0.38454804,  0.01239188, -0.48654742,
+       -0.89764252,  0.51659967, -0.02060173,  0.79679308,  0.82630747,
+       -0.44791536, -0.85343891,  0.25303966]) opt.result.fbest=-2.4767083635054323
+Generation 34 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.70512397,  0.20386095,  0.38454804,  0.01239188, -0.48654742,
+       -0.89764252,  0.51659967, -0.02060173,  0.79679308,  0.82630747,
+       -0.44791536, -0.85343891,  0.25303966]) opt.result.fbest=-2.4767083635054323
+Generation 35 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.70512397,  0.20386095,  0.38454804,  0.01239188, -0.48654742,
+       -0.89764252,  0.51659967, -0.02060173,  0.79679308,  0.82630747,
+       -0.44791536, -0.85343891,  0.25303966]) opt.result.fbest=-2.4767083635054323
+Generation 36 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.70512397,  0.20386095,  0.38454804,  0.01239188, -0.48654742,
+       -0.89764252,  0.51659967, -0.02060173,  0.79679308,  0.82630747,
+       -0.44791536, -0.85343891,  0.25303966]) opt.result.fbest=-2.4767083635054323
+Generation 37 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.70512397,  0.20386095,  0.38454804,  0.01239188, -0.48654742,
+       -0.89764252,  0.51659967, -0.02060173,  0.79679308,  0.82630747,
+       -0.44791536, -0.85343891,  0.25303966]) opt.result.fbest=-2.4767083635054323
+Generation 38 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.70512397,  0.20386095,  0.38454804,  0.01239188, -0.48654742,
+       -0.89764252,  0.51659967, -0.02060173,  0.79679308,  0.82630747,
+       -0.44791536, -0.85343891,  0.25303966]) opt.result.fbest=-2.4767083635054323
+Generation 39 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.70512397,  0.20386095,  0.38454804,  0.01239188, -0.48654742,
+       -0.89764252,  0.51659967, -0.02060173,  0.79679308,  0.82630747,
+       -0.44791536, -0.85343891,  0.25303966]) opt.result.fbest=-2.4767083635054323
+Generation 40 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.70512397,  0.20386095,  0.38454804,  0.01239188, -0.48654742,
+       -0.89764252,  0.51659967, -0.02060173,  0.79679308,  0.82630747,
+       -0.44791536, -0.85343891,  0.25303966]) opt.result.fbest=-2.4767083635054323
+Generation 41 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.70512397,  0.20386095,  0.38454804,  0.01239188, -0.48654742,
+       -0.89764252,  0.51659967, -0.02060173,  0.79679308,  0.82630747,
+       -0.44791536, -0.85343891,  0.25303966]) opt.result.fbest=-2.4767083635054323
+Generation 42 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.70512397,  0.20386095,  0.38454804,  0.01239188, -0.48654742,
+       -0.89764252,  0.51659967, -0.02060173,  0.79679308,  0.82630747,
+       -0.44791536, -0.85343891,  0.25303966]) opt.result.fbest=-2.4767083635054323
+Generation 43 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.70512397,  0.20386095,  0.38454804,  0.01239188, -0.48654742,
+       -0.89764252,  0.51659967, -0.02060173,  0.79679308,  0.82630747,
+       -0.44791536, -0.85343891,  0.25303966]) opt.result.fbest=-2.4767083635054323
+Generation 44 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.70512397,  0.20386095,  0.38454804,  0.01239188, -0.48654742,
+       -0.89764252,  0.51659967, -0.02060173,  0.79679308,  0.82630747,
+       -0.44791536, -0.85343891,  0.25303966]) opt.result.fbest=-2.4767083635054323
+Generation 45 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.70512397,  0.20386095,  0.38454804,  0.01239188, -0.48654742,
+       -0.89764252,  0.51659967, -0.02060173,  0.79679308,  0.82630747,
+       -0.44791536, -0.85343891,  0.25303966]) opt.result.fbest=-2.4767083635054323
+Generation 46 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.70512397,  0.20386095,  0.38454804,  0.01239188, -0.48654742,
+       -0.89764252,  0.51659967, -0.02060173,  0.79679308,  0.82630747,
+       -0.44791536, -0.85343891,  0.25303966]) opt.result.fbest=-2.4767083635054323
+Generation 47 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.70512397,  0.20386095,  0.38454804,  0.01239188, -0.48654742,
+       -0.89764252,  0.51659967, -0.02060173,  0.79679308,  0.82630747,
+       -0.44791536, -0.85343891,  0.25303966]) opt.result.fbest=-2.4767083635054323
+Generation 48 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.70512397,  0.20386095,  0.38454804,  0.01239188, -0.48654742,
+       -0.89764252,  0.51659967, -0.02060173,  0.79679308,  0.82630747,
+       -0.44791536, -0.85343891,  0.25303966]) opt.result.fbest=-2.4767083635054323
+Generation 49 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.70512397,  0.20386095,  0.38454804,  0.01239188, -0.48654742,
+       -0.89764252,  0.51659967, -0.02060173,  0.79679308,  0.82630747,
+       -0.44791536, -0.85343891,  0.25303966]) opt.result.fbest=-2.4767083635054323
+Generation 50 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.70512397,  0.20386095,  0.38454804,  0.01239188, -0.48654742,
+       -0.89764252,  0.51659967, -0.02060173,  0.79679308,  0.82630747,
+       -0.44791536, -0.85343891,  0.25303966]) opt.result.fbest=-2.4767083635054323
+Generation 51 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.70512397,  0.20386095,  0.38454804,  0.01239188, -0.48654742,
+       -0.89764252,  0.51659967, -0.02060173,  0.79679308,  0.82630747,
+       -0.44791536, -0.85343891,  0.25303966]) opt.result.fbest=-2.4767083635054323
+Generation 52 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([ 0.70512397,  0.20386095,  0.38454804,  0.01239188, -0.48654742,
+       -0.89764252,  0.51659967, -0.02060173,  0.79679308,  0.82630747,
+       -0.44791536, -0.85343891,  0.25303966]) opt.result.fbest=-2.4767083635054323
+Generation 53 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([-0.11219056,  0.12407378,  0.83218692, -0.25907471,  0.9738369 ,
+       -0.35020737,  0.961125  , -0.41851882,  0.35181725,  0.60511658,
+       -0.8143411 , -0.96059513,  0.98500453]) opt.result.fbest=-2.508722732727133
+Generation 54 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([-0.11219056,  0.12407378,  0.83218692, -0.25907471,  0.9738369 ,
+       -0.35020737,  0.961125  , -0.41851882,  0.35181725,  0.60511658,
+       -0.8143411 , -0.96059513,  0.98500453]) opt.result.fbest=-2.508722732727133
+Generation 55 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([-0.11219056,  0.12407378,  0.83218692, -0.25907471,  0.9738369 ,
+       -0.35020737,  0.961125  , -0.41851882,  0.35181725,  0.60511658,
+       -0.8143411 , -0.96059513,  0.98500453]) opt.result.fbest=-2.508722732727133
+Generation 56 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([-0.11219056,  0.12407378,  0.83218692, -0.25907471,  0.9738369 ,
+       -0.35020737,  0.961125  , -0.41851882,  0.35181725,  0.60511658,
+       -0.8143411 , -0.96059513,  0.98500453]) opt.result.fbest=-2.508722732727133
+Generation 57 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([-0.17966416,  0.36849523,  0.9904151 , -0.0797154 ,  0.7290665 ,
+       -0.91282858,  0.82412824,  0.01669063,  0.26454535,  0.57251851,
+       -0.85463696, -0.97219969,  0.78753424]) opt.result.fbest=-3.0369218896748906
+Generation 58 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([-0.17966416,  0.36849523,  0.9904151 , -0.0797154 ,  0.7290665 ,
+       -0.91282858,  0.82412824,  0.01669063,  0.26454535,  0.57251851,
+       -0.85463696, -0.97219969,  0.78753424]) opt.result.fbest=-3.0369218896748906
+Generation 59 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([-0.17966416,  0.36849523,  0.9904151 , -0.0797154 ,  0.7290665 ,
+       -0.91282858,  0.82412824,  0.01669063,  0.26454535,  0.57251851,
+       -0.85463696, -0.97219969,  0.78753424]) opt.result.fbest=-3.0369218896748906
+Generation 60 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([-0.17966416,  0.36849523,  0.9904151 , -0.0797154 ,  0.7290665 ,
+       -0.91282858,  0.82412824,  0.01669063,  0.26454535,  0.57251851,
+       -0.85463696, -0.97219969,  0.78753424]) opt.result.fbest=-3.0369218896748906
+Generation 61 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([-0.17966416,  0.36849523,  0.9904151 , -0.0797154 ,  0.7290665 ,
+       -0.91282858,  0.82412824,  0.01669063,  0.26454535,  0.57251851,
+       -0.85463696, -0.97219969,  0.78753424]) opt.result.fbest=-3.0369218896748906
+Generation 62 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([-0.17966416,  0.36849523,  0.9904151 , -0.0797154 ,  0.7290665 ,
+       -0.91282858,  0.82412824,  0.01669063,  0.26454535,  0.57251851,
+       -0.85463696, -0.97219969,  0.78753424]) opt.result.fbest=-3.0369218896748906
+Generation 63 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([-0.17966416,  0.36849523,  0.9904151 , -0.0797154 ,  0.7290665 ,
+       -0.91282858,  0.82412824,  0.01669063,  0.26454535,  0.57251851,
+       -0.85463696, -0.97219969,  0.78753424]) opt.result.fbest=-3.0369218896748906
+Generation 64 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([-0.17966416,  0.36849523,  0.9904151 , -0.0797154 ,  0.7290665 ,
+       -0.91282858,  0.82412824,  0.01669063,  0.26454535,  0.57251851,
+       -0.85463696, -0.97219969,  0.78753424]) opt.result.fbest=-3.0369218896748906
+Generation 65 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([-0.17966416,  0.36849523,  0.9904151 , -0.0797154 ,  0.7290665 ,
+       -0.91282858,  0.82412824,  0.01669063,  0.26454535,  0.57251851,
+       -0.85463696, -0.97219969,  0.78753424]) opt.result.fbest=-3.0369218896748906
+Generation 66 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([-0.17966416,  0.36849523,  0.9904151 , -0.0797154 ,  0.7290665 ,
+       -0.91282858,  0.82412824,  0.01669063,  0.26454535,  0.57251851,
+       -0.85463696, -0.97219969,  0.78753424]) opt.result.fbest=-3.0369218896748906
+Generation 67 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([-0.17966416,  0.36849523,  0.9904151 , -0.0797154 ,  0.7290665 ,
+       -0.91282858,  0.82412824,  0.01669063,  0.26454535,  0.57251851,
+       -0.85463696, -0.97219969,  0.78753424]) opt.result.fbest=-3.0369218896748906
+Generation 68 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([-0.17966416,  0.36849523,  0.9904151 , -0.0797154 ,  0.7290665 ,
+       -0.91282858,  0.82412824,  0.01669063,  0.26454535,  0.57251851,
+       -0.85463696, -0.97219969,  0.78753424]) opt.result.fbest=-3.0369218896748906
+Generation 69 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([-0.17966416,  0.36849523,  0.9904151 , -0.0797154 ,  0.7290665 ,
+       -0.91282858,  0.82412824,  0.01669063,  0.26454535,  0.57251851,
+       -0.85463696, -0.97219969,  0.78753424]) opt.result.fbest=-3.0369218896748906
+Generation 70 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([-0.17966416,  0.36849523,  0.9904151 , -0.0797154 ,  0.7290665 ,
+       -0.91282858,  0.82412824,  0.01669063,  0.26454535,  0.57251851,
+       -0.85463696, -0.97219969,  0.78753424]) opt.result.fbest=-3.0369218896748906
+Generation 71 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([-0.17966416,  0.36849523,  0.9904151 , -0.0797154 ,  0.7290665 ,
+       -0.91282858,  0.82412824,  0.01669063,  0.26454535,  0.57251851,
+       -0.85463696, -0.97219969,  0.78753424]) opt.result.fbest=-3.0369218896748906
+Generation 72 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([-0.17966416,  0.36849523,  0.9904151 , -0.0797154 ,  0.7290665 ,
+       -0.91282858,  0.82412824,  0.01669063,  0.26454535,  0.57251851,
+       -0.85463696, -0.97219969,  0.78753424]) opt.result.fbest=-3.0369218896748906
+Generation 73 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([-0.17966416,  0.36849523,  0.9904151 , -0.0797154 ,  0.7290665 ,
+       -0.91282858,  0.82412824,  0.01669063,  0.26454535,  0.57251851,
+       -0.85463696, -0.97219969,  0.78753424]) opt.result.fbest=-3.0369218896748906
+Generation 74 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([-0.17966416,  0.36849523,  0.9904151 , -0.0797154 ,  0.7290665 ,
+       -0.91282858,  0.82412824,  0.01669063,  0.26454535,  0.57251851,
+       -0.85463696, -0.97219969,  0.78753424]) opt.result.fbest=-3.0369218896748906
+Generation 75 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([-0.17966416,  0.36849523,  0.9904151 , -0.0797154 ,  0.7290665 ,
+       -0.91282858,  0.82412824,  0.01669063,  0.26454535,  0.57251851,
+       -0.85463696, -0.97219969,  0.78753424]) opt.result.fbest=-3.0369218896748906
+Generation 76 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([-0.17966416,  0.36849523,  0.9904151 , -0.0797154 ,  0.7290665 ,
+       -0.91282858,  0.82412824,  0.01669063,  0.26454535,  0.57251851,
+       -0.85463696, -0.97219969,  0.78753424]) opt.result.fbest=-3.0369218896748906
+Generation 77 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([-0.17966416,  0.36849523,  0.9904151 , -0.0797154 ,  0.7290665 ,
+       -0.91282858,  0.82412824,  0.01669063,  0.26454535,  0.57251851,
+       -0.85463696, -0.97219969,  0.78753424]) opt.result.fbest=-3.0369218896748906
+Generation 78 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([-0.17966416,  0.36849523,  0.9904151 , -0.0797154 ,  0.7290665 ,
+       -0.91282858,  0.82412824,  0.01669063,  0.26454535,  0.57251851,
+       -0.85463696, -0.97219969,  0.78753424]) opt.result.fbest=-3.0369218896748906
+Generation 79 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([-0.17966416,  0.36849523,  0.9904151 , -0.0797154 ,  0.7290665 ,
+       -0.91282858,  0.82412824,  0.01669063,  0.26454535,  0.57251851,
+       -0.85463696, -0.97219969,  0.78753424]) opt.result.fbest=-3.0369218896748906
+Generation 80 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([-0.17966416,  0.36849523,  0.9904151 , -0.0797154 ,  0.7290665 ,
+       -0.91282858,  0.82412824,  0.01669063,  0.26454535,  0.57251851,
+       -0.85463696, -0.97219969,  0.78753424]) opt.result.fbest=-3.0369218896748906
+Generation 81 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([-0.17966416,  0.36849523,  0.9904151 , -0.0797154 ,  0.7290665 ,
+       -0.91282858,  0.82412824,  0.01669063,  0.26454535,  0.57251851,
+       -0.85463696, -0.97219969,  0.78753424]) opt.result.fbest=-3.0369218896748906
+Generation 82 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([-0.17966416,  0.36849523,  0.9904151 , -0.0797154 ,  0.7290665 ,
+       -0.91282858,  0.82412824,  0.01669063,  0.26454535,  0.57251851,
+       -0.85463696, -0.97219969,  0.78753424]) opt.result.fbest=-3.0369218896748906
+Generation 83 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([-0.17966416,  0.36849523,  0.9904151 , -0.0797154 ,  0.7290665 ,
+       -0.91282858,  0.82412824,  0.01669063,  0.26454535,  0.57251851,
+       -0.85463696, -0.97219969,  0.78753424]) opt.result.fbest=-3.0369218896748906
+Generation 84 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([-0.17966416,  0.36849523,  0.9904151 , -0.0797154 ,  0.7290665 ,
+       -0.91282858,  0.82412824,  0.01669063,  0.26454535,  0.57251851,
+       -0.85463696, -0.97219969,  0.78753424]) opt.result.fbest=-3.0369218896748906
+Generation 85 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([-0.17966416,  0.36849523,  0.9904151 , -0.0797154 ,  0.7290665 ,
+       -0.91282858,  0.82412824,  0.01669063,  0.26454535,  0.57251851,
+       -0.85463696, -0.97219969,  0.78753424]) opt.result.fbest=-3.0369218896748906
+Generation 86 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([-0.17966416,  0.36849523,  0.9904151 , -0.0797154 ,  0.7290665 ,
+       -0.91282858,  0.82412824,  0.01669063,  0.26454535,  0.57251851,
+       -0.85463696, -0.97219969,  0.78753424]) opt.result.fbest=-3.0369218896748906
+Generation 87 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([-0.17966416,  0.36849523,  0.9904151 , -0.0797154 ,  0.7290665 ,
+       -0.91282858,  0.82412824,  0.01669063,  0.26454535,  0.57251851,
+       -0.85463696, -0.97219969,  0.78753424]) opt.result.fbest=-3.0369218896748906
+Generation 88 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([-0.17966416,  0.36849523,  0.9904151 , -0.0797154 ,  0.7290665 ,
+       -0.91282858,  0.82412824,  0.01669063,  0.26454535,  0.57251851,
+       -0.85463696, -0.97219969,  0.78753424]) opt.result.fbest=-3.0369218896748906
+Generation 89 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([-0.17966416,  0.36849523,  0.9904151 , -0.0797154 ,  0.7290665 ,
+       -0.91282858,  0.82412824,  0.01669063,  0.26454535,  0.57251851,
+       -0.85463696, -0.97219969,  0.78753424]) opt.result.fbest=-3.0369218896748906
+Generation 90 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([-0.17966416,  0.36849523,  0.9904151 , -0.0797154 ,  0.7290665 ,
+       -0.91282858,  0.82412824,  0.01669063,  0.26454535,  0.57251851,
+       -0.85463696, -0.97219969,  0.78753424]) opt.result.fbest=-3.0369218896748906
+Generation 91 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([-0.17966416,  0.36849523,  0.9904151 , -0.0797154 ,  0.7290665 ,
+       -0.91282858,  0.82412824,  0.01669063,  0.26454535,  0.57251851,
+       -0.85463696, -0.97219969,  0.78753424]) opt.result.fbest=-3.0369218896748906
+Generation 92 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([-0.17966416,  0.36849523,  0.9904151 , -0.0797154 ,  0.7290665 ,
+       -0.91282858,  0.82412824,  0.01669063,  0.26454535,  0.57251851,
+       -0.85463696, -0.97219969,  0.78753424]) opt.result.fbest=-3.0369218896748906
+Generation 93 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([-0.17966416,  0.36849523,  0.9904151 , -0.0797154 ,  0.7290665 ,
+       -0.91282858,  0.82412824,  0.01669063,  0.26454535,  0.57251851,
+       -0.85463696, -0.97219969,  0.78753424]) opt.result.fbest=-3.0369218896748906
+Generation 94 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([-0.17966416,  0.36849523,  0.9904151 , -0.0797154 ,  0.7290665 ,
+       -0.91282858,  0.82412824,  0.01669063,  0.26454535,  0.57251851,
+       -0.85463696, -0.97219969,  0.78753424]) opt.result.fbest=-3.0369218896748906
+Generation 95 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([-0.17966416,  0.36849523,  0.9904151 , -0.0797154 ,  0.7290665 ,
+       -0.91282858,  0.82412824,  0.01669063,  0.26454535,  0.57251851,
+       -0.85463696, -0.97219969,  0.78753424]) opt.result.fbest=-3.0369218896748906
+Generation 96 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([-0.17966416,  0.36849523,  0.9904151 , -0.0797154 ,  0.7290665 ,
+       -0.91282858,  0.82412824,  0.01669063,  0.26454535,  0.57251851,
+       -0.85463696, -0.97219969,  0.78753424]) opt.result.fbest=-3.0369218896748906
+Generation 97 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([-0.17966416,  0.36849523,  0.9904151 , -0.0797154 ,  0.7290665 ,
+       -0.91282858,  0.82412824,  0.01669063,  0.26454535,  0.57251851,
+       -0.85463696, -0.97219969,  0.78753424]) opt.result.fbest=-3.0369218896748906
+Generation 98 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([-0.17966416,  0.36849523,  0.9904151 , -0.0797154 ,  0.7290665 ,
+       -0.91282858,  0.82412824,  0.01669063,  0.26454535,  0.57251851,
+       -0.85463696, -0.97219969,  0.78753424]) opt.result.fbest=-3.0369218896748906
+Generation 99 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([-0.17966416,  0.36849523,  0.9904151 , -0.0797154 ,  0.7290665 ,
+       -0.91282858,  0.82412824,  0.01669063,  0.26454535,  0.57251851,
+       -0.85463696, -0.97219969,  0.78753424]) opt.result.fbest=-3.0369218896748906
+Generation 100 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([-0.17966416,  0.36849523,  0.9904151 , -0.0797154 ,  0.7290665 ,
+       -0.91282858,  0.82412824,  0.01669063,  0.26454535,  0.57251851,
+       -0.85463696, -0.97219969,  0.78753424]) opt.result.fbest=-3.0369218896748906
+Generation 101 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([-0.17966416,  0.36849523,  0.9904151 , -0.0797154 ,  0.7290665 ,
+       -0.91282858,  0.82412824,  0.01669063,  0.26454535,  0.57251851,
+       -0.85463696, -0.97219969,  0.78753424]) opt.result.fbest=-3.0369218896748906
+Generation 102 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([-0.40420568,  0.53210826,  0.99863695, -0.99063962,  0.89942855,
+       -0.31145129,  0.6606605 , -0.06796565,  0.68766048,  0.99744927,
+       -0.9920024 , -0.98380405,  0.82816893]) opt.result.fbest=-3.183313729058735
+Generation 103 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([-0.40420568,  0.53210826,  0.99863695, -0.99063962,  0.89942855,
+       -0.31145129,  0.6606605 , -0.06796565,  0.68766048,  0.99744927,
+       -0.9920024 , -0.98380405,  0.82816893]) opt.result.fbest=-3.183313729058735
+Generation 104 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([-0.40420568,  0.53210826,  0.99863695, -0.99063962,  0.89942855,
+       -0.31145129,  0.6606605 , -0.06796565,  0.68766048,  0.99744927,
+       -0.9920024 , -0.98380405,  0.82816893]) opt.result.fbest=-3.183313729058735
+Generation 105 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([-0.40420568,  0.53210826,  0.99863695, -0.99063962,  0.89942855,
+       -0.31145129,  0.6606605 , -0.06796565,  0.68766048,  0.99744927,
+       -0.9920024 , -0.98380405,  0.82816893]) opt.result.fbest=-3.183313729058735
+Generation 106 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([-0.49655189,  0.49962   ,  0.99788679, -0.99979328,  0.64501342,
+       -0.3161526 ,  0.4610206 ,  0.05560662,  0.47377206,  0.96509826,
+       -0.86610612, -0.96903876,  0.73122234]) opt.result.fbest=-3.274007966947968
+Generation 107 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([-0.49655189,  0.49962   ,  0.99788679, -0.99979328,  0.64501342,
+       -0.3161526 ,  0.4610206 ,  0.05560662,  0.47377206,  0.96509826,
+       -0.86610612, -0.96903876,  0.73122234]) opt.result.fbest=-3.274007966947968
+Generation 108 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([-0.49655189,  0.49962   ,  0.99788679, -0.99979328,  0.64501342,
+       -0.3161526 ,  0.4610206 ,  0.05560662,  0.47377206,  0.96509826,
+       -0.86610612, -0.96903876,  0.73122234]) opt.result.fbest=-3.274007966947968
+Generation 109 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([-0.49655189,  0.49962   ,  0.99788679, -0.99979328,  0.64501342,
+       -0.3161526 ,  0.4610206 ,  0.05560662,  0.47377206,  0.96509826,
+       -0.86610612, -0.96903876,  0.73122234]) opt.result.fbest=-3.274007966947968
+Generation 110 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([-0.58867341,  0.61387033,  0.9761303 , -0.99149429,  0.70099016,
+       -0.14825834,  0.51805548,  0.03070703,  0.27985511,  0.96789195,
+       -0.85593354, -0.92754151,  0.52909697]) opt.result.fbest=-3.3385035754464583
+Generation 111 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([-0.58867341,  0.61387033,  0.9761303 , -0.99149429,  0.70099016,
+       -0.14825834,  0.51805548,  0.03070703,  0.27985511,  0.96789195,
+       -0.85593354, -0.92754151,  0.52909697]) opt.result.fbest=-3.3385035754464583
+Generation 112 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([-0.58867341,  0.61387033,  0.9761303 , -0.99149429,  0.70099016,
+       -0.14825834,  0.51805548,  0.03070703,  0.27985511,  0.96789195,
+       -0.85593354, -0.92754151,  0.52909697]) opt.result.fbest=-3.3385035754464583
+Generation 113 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([-0.58867341,  0.61387033,  0.9761303 , -0.99149429,  0.70099016,
+       -0.14825834,  0.51805548,  0.03070703,  0.27985511,  0.96789195,
+       -0.85593354, -0.92754151,  0.52909697]) opt.result.fbest=-3.3385035754464583
+Generation 114 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([-0.58867341,  0.61387033,  0.9761303 , -0.99149429,  0.70099016,
+       -0.14825834,  0.51805548,  0.03070703,  0.27985511,  0.96789195,
+       -0.85593354, -0.92754151,  0.52909697]) opt.result.fbest=-3.3385035754464583
+Generation 115 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([-0.58867341,  0.61387033,  0.9761303 , -0.99149429,  0.70099016,
+       -0.14825834,  0.51805548,  0.03070703,  0.27985511,  0.96789195,
+       -0.85593354, -0.92754151,  0.52909697]) opt.result.fbest=-3.3385035754464583
+Generation 116 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([-0.58867341,  0.61387033,  0.9761303 , -0.99149429,  0.70099016,
+       -0.14825834,  0.51805548,  0.03070703,  0.27985511,  0.96789195,
+       -0.85593354, -0.92754151,  0.52909697]) opt.result.fbest=-3.3385035754464583
+Generation 117 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([-0.58867341,  0.61387033,  0.9761303 , -0.99149429,  0.70099016,
+       -0.14825834,  0.51805548,  0.03070703,  0.27985511,  0.96789195,
+       -0.85593354, -0.92754151,  0.52909697]) opt.result.fbest=-3.3385035754464583
+Generation 118 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([-0.58867341,  0.61387033,  0.9761303 , -0.99149429,  0.70099016,
+       -0.14825834,  0.51805548,  0.03070703,  0.27985511,  0.96789195,
+       -0.85593354, -0.92754151,  0.52909697]) opt.result.fbest=-3.3385035754464583
+Generation 119 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([-0.58867341,  0.61387033,  0.9761303 , -0.99149429,  0.70099016,
+       -0.14825834,  0.51805548,  0.03070703,  0.27985511,  0.96789195,
+       -0.85593354, -0.92754151,  0.52909697]) opt.result.fbest=-3.3385035754464583
+Generation 120 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([-0.58867341,  0.61387033,  0.9761303 , -0.99149429,  0.70099016,
+       -0.14825834,  0.51805548,  0.03070703,  0.27985511,  0.96789195,
+       -0.85593354, -0.92754151,  0.52909697]) opt.result.fbest=-3.3385035754464583
+Generation 121 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([-0.58867341,  0.61387033,  0.9761303 , -0.99149429,  0.70099016,
+       -0.14825834,  0.51805548,  0.03070703,  0.27985511,  0.96789195,
+       -0.85593354, -0.92754151,  0.52909697]) opt.result.fbest=-3.3385035754464583
+Generation 122 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([-0.58867341,  0.61387033,  0.9761303 , -0.99149429,  0.70099016,
+       -0.14825834,  0.51805548,  0.03070703,  0.27985511,  0.96789195,
+       -0.85593354, -0.92754151,  0.52909697]) opt.result.fbest=-3.3385035754464583
+Generation 123 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([-0.58867341,  0.61387033,  0.9761303 , -0.99149429,  0.70099016,
+       -0.14825834,  0.51805548,  0.03070703,  0.27985511,  0.96789195,
+       -0.85593354, -0.92754151,  0.52909697]) opt.result.fbest=-3.3385035754464583
+Generation 124 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([-0.58867341,  0.61387033,  0.9761303 , -0.99149429,  0.70099016,
+       -0.14825834,  0.51805548,  0.03070703,  0.27985511,  0.96789195,
+       -0.85593354, -0.92754151,  0.52909697]) opt.result.fbest=-3.3385035754464583
+Generation 125 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([-0.58867341,  0.61387033,  0.9761303 , -0.99149429,  0.70099016,
+       -0.14825834,  0.51805548,  0.03070703,  0.27985511,  0.96789195,
+       -0.85593354, -0.92754151,  0.52909697]) opt.result.fbest=-3.3385035754464583
+Generation 126 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([-0.51190525,  0.49900267,  0.9418841 , -0.96152661,  0.69142607,
+        0.03790211,  0.64302297, -0.03407589,  0.51014801,  0.99272536,
+       -0.78874097, -0.87178516,  0.78790977]) opt.result.fbest=-3.6367066281098626
+Generation 127 / 500.
+Starting simulation batch with mujoco.
+Finished batch.
+opt.result.xbest=array([-0.51190525,  0.49900267,  0.9418841 , -0.96152661,  0.69142607,
+        0.03790211,  0.64302297, -0.03407589,  0.51014801,  0.99272536,
+       -0.78874097, -0.87178516,  0.78790977]) opt.result.fbest=-3.6367066281098626
+Generation 128 / 500.
+Starting simulation batch with mujoco.

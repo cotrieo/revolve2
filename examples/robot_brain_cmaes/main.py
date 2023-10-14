@@ -24,7 +24,8 @@ from revolve2.modular_robot.brains import (
     body_to_actor_and_cpg_network_structure_neighbour,
 )
 
-from revolve2.examples.evaluate_single_robot import modified
+from revolve2.ci_group import modified
+
 def main(BODY) -> None:
     """Run the experiment."""
     setup_logging(file_name="log_{}.txt".format(BODY))

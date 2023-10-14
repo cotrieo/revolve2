@@ -72,16 +72,16 @@ class Evaluator:
             )
             for params in solutions
         ]
-
         # Next, run the simulation and process the results.
         batch = create_batch_multiple_isolated_robots_standard(
             robots, [self._terrain for _ in solutions]
         )
         # batch = create_batch_single_robot_standard(
-        #     robots, [self._terrain for _ in solutions]
+        #     robots[0], self._terrain
         # )
         results = asyncio.run(self._runner.run_batch(batch))
 
+        # results = self._runner.run_batch(batch)
         body_states = get_body_states_multiple_isolated_robots(
             [self._body for _ in solutions], results
         )

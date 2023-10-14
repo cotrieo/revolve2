@@ -28,7 +28,7 @@ def save_dataframes(evals, best, generalist, generalist_evals, info, path):
         '{}_generalist_evals.csv'.format(info)
     ]
 
-    dataframes = [evals, pd.DataFrame(best), pd.DataFrame(generalist), generalist_evals]
+    dataframes = [evals, pd.DataFrame([best]), pd.DataFrame([generalist]), generalist_evals]
 
     for dataframe, subdir, filename in zip(dataframes, subdirectories, file_names):
         save_dataframe(dataframe, os.path.join(path, subdir), filename)

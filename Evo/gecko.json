@@ -1,0 +1,13 @@
+{
+    "maxFitness": 6,
+    "stdev_init": 0.1,
+    "initial_bounds": [-0.00001, 0.00001],
+    "generations": 5000,
+    "filename": "Results",
+    "runs": 1,
+    "//comment": "Parameter1 is the servos",
+    "parameter1": [0, 1, 2],
+    "//comment2": "Parameter2 is angle at which the servo is stuck",
+    "parameter2": [0.0, 0.5, 1.0],
+    "actors": 2
+}

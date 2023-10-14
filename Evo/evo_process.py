@@ -31,7 +31,7 @@ class Algo:
     def evaluate(self, agent: torch.Tensor) -> torch.Tensor:
         evaluator = Evaluator(
             headless=True,
-            num_simulators=self.actors,
+            num_simulators=1,
             cpg_network_structure=self.cpg_network_structure,
             body=modified.select_morph(self.parameters)
         )
@@ -82,8 +82,8 @@ class Algo:
         xbest_weights = 0
         generalist_weights = 0
         generation = 0
-        current_pop_best_fitness = self.max_eval
-        generalist_average_fitness = self.max_eval
+        current_pop_best_fitness = -self.max_eval
+        generalist_average_fitness = -self.max_eval
         env_counter = 0
         generalist_fitness_scores = np.zeros(len(self.variations))
         good_fitness_scores = np.zeros(len(self.variations))
@@ -98,7 +98,7 @@ class Algo:
         pandas_logger = PandasLogger(searcher)
 
         print('Number of Environments: ', len(self.variations))
-        logger = StdOutLogger(searcher, interval=1)
+        logger = StdOutLogger(searcher, interval=10)
 
         while generation < self.max_eval:
 
@@ -125,9 +125,10 @@ class Algo:
                 generalist_min_fitness_history.append(np.min(generalist_fitness_scores))
                 generalist_max_fitness_history.append(np.max(generalist_fitness_scores))
 
-                if new_generalist_average_fitness <= generalist_average_fitness:
+                if new_generalist_average_fitness >= generalist_average_fitness:
                     generalist_average_fitness = new_generalist_average_fitness
                     generalist_old_dev = generalist_new_dev
+                    print(generalist_average_fitness)
 
                     good_fitness_scores = generalist_fitness_scores.copy()
                     generalist_weights = xbest_weights.detach().clone()
@@ -174,11 +175,13 @@ class Algo:
                 generalist_average_fitness = current_pop_best_fitness
                 xbest_weights = xbest_weights_copy
                 generalist_weights = xbest_weights
+                if (searcher.status.get('iter') - improved) % int(np.ceil(self.max_eval * 0.06)) == 0:
+                    break
 
             number_environments.append(len(self.variations))
             generation = searcher.status.get('iter')
 
-            if generalist_average_fitness < self.max_fitness:
+            if generalist_average_fitness > self.max_fitness:
                 break
 
         evals = pandas_logger.to_dataframe()

@@ -14,24 +14,27 @@ from revolve2.actor_controllers.cpg import CpgNetworkStructure, CpgPair
 from revolve2.actor_controllers.cpg import Cpg
 # These are set of parameters that we optimized using CMA-ES.
 # You can copy your own parameters from the optimization output log.
-PARAMS = np.array(
-    [
-        0.96349864,
-        0.71928482,
-        0.97834176,
-        0.90804766,
-        0.69150098,
-        0.48491278,
-        0.40755897,
-        0.99818664,
-        0.9804162,
-        -0.34097883,
-        -0.01808513,
-        0.76003573,
-        0.66221044,
-    ]
-)
+# PARAMS = np.array(
+#     [
+#         0.96349864,
+#         0.71928482,
+#         0.97834176,
+#         0.90804766,
+#         0.69150098,
+#         0.48491278,
+#         0.40755897,
+#         0.99818664,
+#         0.9804162,
+#         -0.34097883,
+#         -0.01808513,
+#         0.76003573,
+#         0.66221044,
+#     ]
+# )
 
+PARAMS = np.array([-0.96630358,  0.99038008,  0.94955542, -0.00525027, -0.53647551,
+        0.00167203,  0.79198974, -0.0142178 ,  0.82295878,  0.99113653,
+       -0.7251427 , -0.86829821,  0.98791219])
 # PARAMS = np.array([-0.44375534, 0.99499762, -0.60628628, 0.80725963, -0.91015117,
 #                    0.97603211, -0.99989902, 0.53095133, 0.99875929, -0.92524671, 0.0, 0.0, 0.0])
 
@@ -78,9 +81,10 @@ morphs = generate_morphologies(servos, angles)
 fitnesses = []
 bodies = []
 if __name__ == "__main__":
-    for morph in morphs:
-        fitness = main(morph)
-        print(morph, fitness)
+    main([0, 0.0])
+    # for morph in morphs:
+    #     fitness = main(morph)
+    #     print(morph, fitness)
         # fitnesses.append(fitness)
         # bodies.append(morph)
     # print(fitnesses)

@@ -27,7 +27,7 @@ from revolve2.modular_robot.brains import (
 from revolve2.examples.evaluate_single_robot import modified
 def main(BODY) -> None:
     """Run the experiment."""
-    setup_logging(file_name="log_{}.txt".format(BODY))
+    setup_logging(file_name="log_{}2.txt".format(BODY))
     fbest = []
     # Get the actor and cpg network structure for the body of choice.
     # The cpg network structure describes the connections between neurons in the cpg brain.
@@ -60,10 +60,13 @@ def main(BODY) -> None:
     opt = cma.CMAEvolutionStrategy(initial_mean, config.INITIAL_STD, options)
 
     generation_index = 0
-
+    old_fbest = 0
+    generation_improved = 0
+    distance = 0
     # Run cma for the defined number of generations.
     logging.info("Start optimization process.")
-    while generation_index < config.NUM_GENERATIONS:
+    # while generation_index < config.NUM_GENERATIONS:
+    while distance < 500 and generation_index < config.NUM_GENERATIONS:
         logging.info(f"Generation {generation_index + 1} / {config.NUM_GENERATIONS}.")
 
         # Get the sampled solutions(parameters) from cma.
@@ -77,30 +80,38 @@ def main(BODY) -> None:
 
         logging.info(f"{opt.result.xbest=} {opt.result.fbest=}")
         fbest.append(opt.result.fbest)
+        new_fbest = opt.result.fbest
+        if new_fbest < old_fbest:
+            old_fbest = new_fbest
+            generation_improved = generation_index
+        else:
+            pass
         # Increase the generation index counter.
         generation_index += 1
+
+        distance = generation_index - generation_improved
 
     df = pd.DataFrame({'fbest':fbest})
     df['fbest'] = df['fbest'] * -1
     print(df)
-    df.to_csv('log_{}.csv'.format(BODY))
+    df.to_csv('log_{}2.csv'.format(BODY))
     df['fbest'].plot()
     plt.title('Morphology: {}'.format(BODY))
-    plt.savefig('fig_{}.pdf'.format(BODY))
+    plt.savefig('fig_{}2.pdf'.format(BODY))
     plt.show()
-def generate_morphologies(parameter1_range, parameter2_range):
-    morphologies = np.array(np.meshgrid(parameter1_range, parameter2_range)).T.reshape(-1, 2)
-    return morphologies
-
-servos = [1, 2, 3, 4, 5, 6]
-# angles = [-1.5, -1.3, -0.7, -0.5, -0.3, 0.0, 0.3, 0.5, 0.7, 1.3, 1.5]
-angles = [-1.5, -0.5, 0.0, 0.5, 1.5]
-morphs = generate_morphologies(servos, angles)
-morphs = np.append(morphs, [0, 0.0])
-morphs = morphs.reshape((31,2))
-
-fitnesses = []
-bodies = []
+# def generate_morphologies(parameter1_range, parameter2_range):
+#     morphologies = np.array(np.meshgrid(parameter1_range, parameter2_range)).T.reshape(-1, 2)
+#     return morphologies
+#
+# servos = [1, 2, 3, 4, 5, 6]
+# # angles = [-1.5, -1.3, -0.7, -0.5, -0.3, 0.0, 0.3, 0.5, 0.7, 1.3, 1.5]
+# angles = [-1.5, -0.5, 0.0, 0.5, 1.5]
+# morphs = generate_morphologies(servos, angles)
+# morphs = np.append(morphs, [0, 0.0])
+# morphs = morphs.reshape((31,2))
+#
+# fitnesses = []
+# bodies = []
 if __name__ == "__main__":
     # for morph in morphs:
     fitness = main([0, 0.0])

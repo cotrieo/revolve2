@@ -25,7 +25,6 @@ def experiment_run(config):
             generations = generations - generation
 
 
-with open('biped.json') as json_file:
-    # print('Running experiment for ', sys.argv[1])
-    config = json.load(json_file)
+if __name__ == "__main__":
+    config = json.load(open('gecko.json'))
     experiment_run(config)

@@ -17,7 +17,7 @@ def create_directories(path, subdirectories):
 
 
 def save_dataframes(evals, best, generalist, generalist_evals, info, path):
-    subdirectories = ['xbest', 'generalist', 'evals', 'generalist_evals']
+    subdirectories = ['evals', 'xbest', 'generalist', 'generalist_evals']
 
     create_directories(path, subdirectories)
 

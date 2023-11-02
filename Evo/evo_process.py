@@ -1,5 +1,7 @@
 import joblib
 import random
+
+import matplotlib.pyplot as plt
 from evotorch import Problem
 from revolve2.examples.robot_brain_cmaes.evaluator import Evaluator
 from evotorch.logging import StdOutLogger, PandasLogger
@@ -98,7 +100,7 @@ class Algo:
         pandas_logger = PandasLogger(searcher)
 
         print('Number of Environments: ', len(self.variations))
-        logger = StdOutLogger(searcher, interval=10)
+        logger = StdOutLogger(searcher, interval=1)
 
         while generation < self.max_eval:
 
@@ -106,10 +108,11 @@ class Algo:
             index_best = searcher.population.argbest()
             xbest_weights = searcher.population[index_best].values
 
-            if current_pop_best_fitness > searcher.status.get('best_eval'):
+            if current_pop_best_fitness < searcher.status.get('best_eval'):
                 current_pop_best_fitness = searcher.status.get('best_eval')
                 xbest_weights_copy = xbest_weights.detach().clone()
                 improved = searcher.status.get('iter')
+
 
             if len(self.variations) > 1:
                 compare = joblib.Parallel(n_jobs=self.actors)(joblib.delayed(self.comparison)(xbest_weights, 1, i)
@@ -173,15 +176,16 @@ class Algo:
 
             elif len(self.variations) == 1:
                 generalist_average_fitness = current_pop_best_fitness
-                xbest_weights = xbest_weights_copy
-                generalist_weights = xbest_weights
-                if (searcher.status.get('iter') - improved) % int(np.ceil(self.max_eval * 0.06)) == 0:
-                    break
+                xbest_weights = xbest_weights.detach().clone()
+                generalist_weights = xbest_weights.detach().clone()
+                # if (searcher.status.get('iter') - improved) % int(np.ceil(self.max_eval * 0.06)) == 0:
+                #     break
 
             number_environments.append(len(self.variations))
             generation = searcher.status.get('iter')
 
             if generalist_average_fitness > self.max_fitness:
+                print('Found best')
                 break
 
         evals = pandas_logger.to_dataframe()
@@ -198,5 +202,10 @@ class Algo:
         info = '{}_{}_{}'.format(self.run_id, self.cluster_id, self.seed)
 
         save_dataframes(evals, xbest_weights, generalist_weights, generalist_evals, info, self.path)
+        plt.plot(evals['best_eval'])
+        plt.savefig('{}.pdf'.format(info))
+        plt.ylabel('Fitness')
+        plt.xlabel('Generations')
+        plt.show()
 
         return generation, np.array(bad_environments)

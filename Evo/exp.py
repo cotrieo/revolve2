@@ -8,9 +8,9 @@ import sys
 def experiment_run(config):
     runs = config['runs']
     parameter1_range, parameter2_range = config['parameter1'], config['parameter2']
-    variations = generate_morphologies(parameter1_range, parameter2_range)
 
     for i in range(runs):
+        variations = generate_morphologies(parameter1_range, parameter2_range)
         cluster_count = 0
         generations = config['generations']
         folder_name = config['filename']
@@ -23,7 +23,6 @@ def experiment_run(config):
                        config=config, generation=generations, run_id=i, cluster_id=cluster_count)
             generation, variations = run.main()
             generations = generations - generation
-
 
 if __name__ == "__main__":
     config = json.load(open('gecko.json'))

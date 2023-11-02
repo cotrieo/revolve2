@@ -89,4 +89,14 @@ class Evaluator:
             fitness_functions.xy_displacement(body_state_begin, body_state_end)
             for body_state_begin, body_state_end in body_states
         ]
-        return np.array(xy_displacements)
+
+        fitness = np.array(xy_displacements)
+
+        alfa = 1e-1
+        #Add L1 norm for now, change maybe
+        for i in range(len(solutions)):
+            l1_norm = alfa * sum(abs(k) for k in solutions[i])
+            # print(fitness[i], l1_norm)
+            fitness[i] -= l1_norm
+
+        return fitness

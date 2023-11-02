@@ -40,6 +40,7 @@ def run(BODY) -> None:
     for i in tqdm(range(config.NUM_RUNS)):
         """Run the experiment."""
         fbest = []
+        norm_history = []
         max_fitness = 0
         early_stopping_tolerance = 50
         generations_since_improvement = 0
@@ -88,6 +89,9 @@ def run(BODY) -> None:
             opt.tell(solutions, fitnesses)
 
             logging.info(f"{opt.result.xbest=} {opt.result.fbest=}")
+            weight_norm = sum(abs(x) for x in opt.result.xbest)
+            norm_history.append(weight_norm)
+
             fbest.append(opt.result.fbest)
             # Increase the generation index counter.
             generation_index += 1
@@ -108,15 +112,22 @@ def run(BODY) -> None:
         df = pd.DataFrame({'fbest':fbest})
         df['fbest'] = df['fbest'] * -1
         df.to_csv(f'./Results_default/log_{i}_{BODY}.csv', index=False)
+        #
 
-        # Plot fitnes
-        plt.figure(figsize=(12,8))
-        df['fbest'].plot()
-        plt.title('Morphology: {}'.format(BODY))
-        plt.xlabel('Generation')
-        plt.ylabel('Best fitness')
-        plt.savefig(f'./Results_default/fig_{i}_{BODY}.pdf')
-        # plt.show()
+        # Plot fitnes and L1 norm
+        fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 4))
+
+        ax1.plot(df['fbest'], color='b')
+        ax1.set_title('')
+        ax1.set_xlabel('Generation')
+        ax1.set_ylabel('Best fitness')
+
+        ax2.plot(norm_history, color='g')
+        ax2.set_xlabel('Generation')
+        ax2.set_ylabel('L1 norm')
+
+        fig.suptitle('Morphology: {}'.format(BODY))
+        fig.savefig(f'./Results_default/fig_{i}_{BODY}.pdf')
 
 
 def generate_morphologies(parameter1_range, parameter2_range):

@@ -8,6 +8,7 @@ import mujoco
 import mujoco_viewer
 import numpy as np
 import numpy.typing as npt
+from datetime import datetime
 
 try:
     import logging
@@ -127,7 +128,8 @@ class LocalRunner(Runner):
 
         if record_settings is not None:
             video_step = 1 / record_settings.fps
-            video_file_path = f"{record_settings.video_directory}/{env_index}.mp4"
+
+            video_file_path = f"{record_settings.video_directory}/{datetime.now().strftime('%Y%m-%d%H-%M%S-')}.mp4"
             fourcc = cv2.VideoWriter.fourcc(*"mp4v")
             video = cv2.VideoWriter(
                 video_file_path,
@@ -233,13 +235,17 @@ class LocalRunner(Runner):
         :param record_settings: Optional settings for recording the runnings. If None, no recording is made.
         :returns: List of simulation states in ascending order of time.
         """
+
+        # Comment out if you want to save videos
+        # record_settings = RecordSettings(video_directory="./Recorded_runs" , fps=60)
+
         logging.info("Starting simulation batch with mujoco.")
 
         control_step = 1 / batch.control_frequency
         sample_step = 1 / batch.sampling_frequency
 
         if record_settings is not None:
-            os.makedirs(record_settings.video_directory, exist_ok=False)
+            os.makedirs(record_settings.video_directory, exist_ok=True)
 
         with concurrent.futures.ProcessPoolExecutor(
             max_workers=self._num_simulators

@@ -5,7 +5,7 @@ from revolve2.ci_group import modified
 
 NUM_SIMULATORS = 12
 INITIAL_STD = 0.5
-NUM_GENERATIONS = 1000
-NUM_RUNS = 50
+NUM_GENERATIONS = 500
+NUM_RUNS = 10
 # angles = [60, 60, 60, 60, 60, 60, 60]
 # BODY = modified.gecko_mod(angles)

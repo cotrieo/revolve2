@@ -1,8 +1,7 @@
 import json
+import os
 from utils import generate_morphologies
 from evo_process import Algo
-import os
-import sys
 
 
 def experiment_run(config):
@@ -19,6 +18,7 @@ def experiment_run(config):
             cluster_count += 1
             path = f"{folder_name}/"
             os.makedirs(path, exist_ok=True)
+
             run = Algo(path=path, variations=variations,
                        config=config, generation=generations, run_id=i, cluster_id=cluster_count)
             generation, variations = run.main()

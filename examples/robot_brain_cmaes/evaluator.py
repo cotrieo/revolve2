@@ -76,9 +76,7 @@ class Evaluator:
         batch = create_batch_multiple_isolated_robots_standard(
             robots, [self._terrain for _ in solutions]
         )
-        # batch = create_batch_single_robot_standard(
-        #     robots[0], self._terrain
-        # )
+
         results = asyncio.run(self._runner.run_batch(batch))
 
         # results = self._runner.run_batch(batch)
@@ -89,4 +87,5 @@ class Evaluator:
             fitness_functions.xy_displacement(body_state_begin, body_state_end)
             for body_state_begin, body_state_end in body_states
         ]
+
         return np.array(xy_displacements)

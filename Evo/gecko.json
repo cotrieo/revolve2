@@ -9,5 +9,5 @@
     "parameter1": [1, 2, 5],
     "//comment2": "Parameter2 is angle at which the servo is stuck",
     "parameter2": [0.3, 0.0, -0.3],
-    "actors": 4
+    "actors": 5
 }

@@ -18,26 +18,23 @@ from evotorch import Problem
 from evotorch.logging import StdOutLogger, PandasLogger
 from evotorch.algorithms import XNES
 from utils import save_dataframes, evaluate2
+from evotorch import SolutionBatch
 
 
-class Algo:
-    def __init__(self, path, variations, config, run_id, cluster_id, generation):
+class Eval(Problem):
+    def __init__(self, variations, cpg, counter):
+        super().__init__(
+            objective_sense="max",
+            solution_length=13,
+            initial_bounds=(-0.1, 0.1),
+        )
+
         self.variations = variations
-        self.path = path
-        self.max_eval = generation
-        self.cluster_id = cluster_id
-        self.run_id = run_id
-        self.max_fitness = config["maxFitness"]
-        self.initial_stdev = config['stdev_init']
-        self.initial_bounds = config["initial_bounds"]
-        self.actors = config['actors']
-        self.seed = random.randint(0, 1000000)
-        self.parameters = self.variations[0]
-        file = open('brain', 'rb')
-        self.cpg_network_structure = pickle.load(file)
+        self.env_counter = counter
+        self.parameters = self.variations[self.env_counter]
+        self.cpg_network_structure = cpg
 
-
-    def evaluate(self, agent) -> float:
+    def evals(self, agent: torch.Tensor) -> float:
 
         brain = BrainCpgNetworkStatic.create_simple(
             params=np.array(agent),
@@ -63,19 +60,28 @@ class Algo:
 
         return xy_displacement
 
-    # def evaluater(self, agent):
-    #     compare = joblib.Parallel(n_jobs=self.actors)(joblib.delayed(self.evaluate)(agent, 1, i)
-    #                                                   for i in range(len(searcher.population)))
-    def problem(self):
+    def _evaluate_batch(self, solutions: SolutionBatch):
+        solutions.set_evals(torch.FloatTensor(joblib.Parallel(n_jobs=6)(joblib.delayed(self.evals)(i) for i in solutions.values)))
+        self.env_counter += 1
+        self.parameters = self.variations[self.env_counter]
 
-        problem = Problem(
-            "max",
-            objective_func=self.evaluate,
-            solution_length=13,
-            initial_bounds=(self.initial_bounds[0], self.initial_bounds[1]))
+        if self.env_counter >= len(self.variations):
+            self.env_counter = 0
 
-        searcher = XNES(problem, stdev_init=self.initial_stdev)
-        return searcher
+class Algo:
+    def __init__(self, path, variations, config, run_id, cluster_id, generation):
+        self.variations = variations
+        self.path = path
+        self.max_eval = generation
+        self.cluster_id = cluster_id
+        self.run_id = run_id
+        self.max_fitness = config["maxFitness"]
+        self.initial_stdev = config['stdev_init']
+        self.initial_bounds = config["initial_bounds"]
+        self.actors = config['actors']
+        self.seed = random.randint(0, 1000000)
+        file = open('brain', 'rb')
+        self.cpg_network_structure = pickle.load(file)
 
     def comparison(self, agent, i):
 
@@ -87,10 +93,12 @@ class Algo:
     # main function to run the evolution
     def main(self):
 
+        problem = Eval(self.variations, self.cpg_network_structure, 0)
+        searcher = XNES(problem, stdev_init=self.initial_stdev)
+
         improved = 0
         generalist_dev = 0
         prev_pop_best_fitness = 0
-        xbest_weights = 0
         generalist_weights = 0
         generation = 0
         current_pop_best_fitness = -self.max_eval
@@ -105,15 +113,14 @@ class Algo:
         generalist_min_fitness_history = []
         generalist_max_fitness_history = []
 
-        searcher = self.problem()
-
         pandas_logger = PandasLogger(searcher)
         print('Number of Environments: ', len(self.variations))
         logger = StdOutLogger(searcher, interval=1)
         torch.set_printoptions(precision=30)
-
+        import time
         while generation < self.max_eval:
 
+            start = time.time()
             # take one step of the evolution and identify the best individual of a generation
             searcher.step()
             index_best = searcher.population.argbest()
@@ -198,12 +205,12 @@ class Algo:
 
                         print(' no_envs : ', len(self.variations))
 
-                # move onto the next morphology
-                env_counter += 1
-                if env_counter >= len(self.variations):
-                    env_counter = 0
+                        problem = Eval(self.variations, self.cpg_network_structure, env_counter)
+                        searcher = XNES(problem, stdev_init=self.initial_stdev)
 
-                self.parameters = self.variations[env_counter]
+
+
+
 
             # if there is only one morphology generalist = xbest
             elif len(self.variations) == 1:
@@ -218,7 +225,8 @@ class Algo:
             if generalist_avg_fit > self.max_fitness:
                 print('Found best')
                 break
-
+            end = time.time()
+            print('Time', end - start)
         # data logging
         evals = pandas_logger.to_dataframe()
 
@@ -236,10 +244,10 @@ class Algo:
         save_dataframes(evals, xbest, generalist_weights, generalist_evals, info, self.path)
 
         plt.plot(evals['best_eval'])
-        plt.savefig('{}/{}.pdf'.format(self.path, info))
         plt.ylabel('Fitness')
         plt.xlabel('Generations')
         plt.title('{}'.format(info))
+        plt.savefig('{}/{}.pdf'.format(self.path, info))
         plt.show()
 
         return generation, np.array(bad_environments)

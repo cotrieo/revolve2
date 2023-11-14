@@ -61,12 +61,58 @@ class Eval(Problem):
         return xy_displacement
 
     def _evaluate_batch(self, solutions: SolutionBatch):
-        solutions.set_evals(torch.FloatTensor(joblib.Parallel(n_jobs=6)(joblib.delayed(self.evals)(i) for i in solutions.values)))
-        self.env_counter += 1
-        self.parameters = self.variations[self.env_counter]
+        solutions.set_evals(
+            torch.FloatTensor(joblib.Parallel(n_jobs=6)(joblib.delayed(self.evals)(i) for i in solutions.values)))
+        if len(self.variations) > 1:
+            self.env_counter += 1
+        else:
+            self.env_counter = 0
 
         if self.env_counter >= len(self.variations):
             self.env_counter = 0
+
+        self.parameters = self.variations[self.env_counter]
+
+    def comparison(self, agent, i):
+
+        fitness = evaluate2(agent,
+                            self.cpg_network_structure,
+                            modified.select_morph(self.variations[i]))
+        return fitness
+
+    def split(self, good_fitness_scores, generalist_avg_fit, generalist_dev, generalist_weights):
+        break_stat = False
+        good_envs = []
+        bad_envs = []
+
+        for i in range(len(self.variations)):
+            if good_fitness_scores[i] < (generalist_avg_fit + generalist_dev):
+                good_envs.append(self.variations[i])
+            else:
+                # add underperformed variations to bin
+                bad_envs.append(list(self.variations[i]))
+
+        if len(good_envs) == 0:
+            print('No more envs')
+            break_stat = True
+        elif len(good_envs) == len(self.variations):
+            print('No more bad envs')
+            break_stat = True
+
+        # replace set of variations with only the good variations and re-check their fitness
+        self.variations = np.array(good_envs)
+
+        compare_after = joblib.Parallel(n_jobs=4)(joblib.delayed(self.comparison)
+                                                  (generalist_weights, i)
+                                                  for i in range(len(self.variations)))
+
+        generalist_scores = np.array(compare_after)
+        new_avg_fit = np.mean(generalist_scores)
+
+        self.env_counter = 0
+
+        return break_stat, bad_envs, self.variations, generalist_scores, new_avg_fit
+
 
 class Algo:
     def __init__(self, path, variations, config, run_id, cluster_id, generation):
@@ -84,7 +130,6 @@ class Algo:
         self.cpg_network_structure = pickle.load(file)
 
     def comparison(self, agent, i):
-
         fitness = evaluate2(agent,
                             self.cpg_network_structure,
                             modified.select_morph(self.variations[i]))
@@ -97,30 +142,28 @@ class Algo:
         searcher = XNES(problem, stdev_init=self.initial_stdev)
 
         improved = 0
-        generalist_dev = 0
+        generalist_std = 0
         prev_pop_best_fitness = 0
         generalist_weights = 0
         generation = 0
         current_pop_best_fitness = -self.max_eval
         generalist_avg_fit = -self.max_eval
-        env_counter = 0
-        generalist_fitness_scores = np.zeros(len(self.variations))
+        generalist_scores = np.zeros(len(self.variations))
         good_fitness_scores = np.zeros(len(self.variations))
         number_environments = []
         bad_environments = []
-        generalist_average_fitness_history = []
-        fitness_std_deviation_history = []
-        generalist_min_fitness_history = []
-        generalist_max_fitness_history = []
+        generalist_avg_history = []
+        general_std_history = []
+        general_min_fitness_history = []
+        general_max_fitness_history = []
 
         pandas_logger = PandasLogger(searcher)
         print('Number of Environments: ', len(self.variations))
         logger = StdOutLogger(searcher, interval=1)
         torch.set_printoptions(precision=30)
-        import time
+
         while generation < self.max_eval:
 
-            start = time.time()
             # take one step of the evolution and identify the best individual of a generation
             searcher.step()
             index_best = searcher.population.argbest()
@@ -137,80 +180,61 @@ class Algo:
 
                 # test xbest on all individuals in the morphology set
                 compare = joblib.Parallel(n_jobs=self.actors)(joblib.delayed(self.comparison)(xbest, i)
-                                                              for i in range(len(generalist_fitness_scores)))
+                                                              for i in range(len(generalist_scores)))
 
-                generalist_fitness_scores = np.array(compare)
+                generalist_scores = np.array(compare)
 
                 # check the average fitness score of the morphologies
-                new_generalist_avg_fit = np.mean(generalist_fitness_scores)
+                new_avg_fit = np.mean(generalist_scores)
 
                 # log the info about the evolution of the generalist
-                generalist_average_fitness_history.append(new_generalist_avg_fit)
-                generalist_new_dev = np.std(generalist_fitness_scores)
-                fitness_std_deviation_history.append(generalist_new_dev)
-                generalist_min_fitness_history.append(np.min(generalist_fitness_scores))
-                generalist_max_fitness_history.append(np.max(generalist_fitness_scores))
+                generalist_avg_history.append(new_avg_fit)
+                generalist_new_std = np.std(generalist_scores)
+                general_std_history.append(generalist_new_std)
+                general_min_fitness_history.append(np.min(generalist_scores))
+                general_max_fitness_history.append(np.max(generalist_scores))
 
                 # if current generalist has a smaller avg score than new generalist replace avg score and weights
-                if generalist_avg_fit < new_generalist_avg_fit:
-                    generalist_avg_fit = new_generalist_avg_fit
-                    generalist_dev = generalist_new_dev
+                if generalist_avg_fit < new_avg_fit:
+                    generalist_avg_fit = new_avg_fit
+                    generalist_std = generalist_new_std
 
                     print('Generalist score: ', generalist_avg_fit)
 
-                    good_fitness_scores = generalist_fitness_scores.copy()
+                    good_fitness_scores = generalist_scores.copy()
                     generalist_weights = xbest_weights.detach().clone()
 
                     # REMOVE LATER - ONLY FOR TESTING
-                    if len(self.variations) == 9:
-                        sns.heatmap(generalist_fitness_scores.reshape((3, 3)), vmin=-5, vmax=5, annot=True)
+                    if len(self.variations) == 25:
+                        sns.heatmap(generalist_scores.reshape((5, 5)), vmin=-5, vmax=5, annot=True)
                         plt.show()
 
                 # check if evolution has stagnated
-                if (searcher.status.get('iter') - improved) % int(np.ceil(self.max_eval * 0.04)) == 0:
+                if (searcher.status.get('iter') - improved) % int(np.ceil(self.max_eval * 0.05)) == 0:
 
                     if current_pop_best_fitness != prev_pop_best_fitness:
                         prev_pop_best_fitness = current_pop_best_fitness
                     else:
                         # if the evolution has stagnated check the generalist fitness scores
-                        good_envs = []
+                        break_stat, bad_envs, self.variations, generalist_scores, new_avg_fit = problem.split(
+                            good_fitness_scores,
+                            generalist_avg_fit,
+                            generalist_std,
+                            generalist_weights)
 
-                        for i in range(len(self.variations)):
-                            if good_fitness_scores[i] < (generalist_avg_fit + generalist_dev):
-                                good_envs.append(self.variations[i])
-                            else:
-                                # add underperformed variations to bin
-                                bad_environments.append(self.variations[i])
+                        if new_avg_fit < generalist_avg_fit:
+                            good_fitness_scores = generalist_scores.copy()
 
-                        if len(good_envs) == 0:
+                        if len(bad_envs) > 0:
+                            for env in bad_envs:
+                                bad_environments.append(env)
+                            print(bad_environments)
+
+                        if break_stat == True:
                             break
-                        elif len(good_envs) == len(self.variations):
-                            break
 
-                        # replace set of variations with only the good variations and re-check their fitness
-                        self.variations = np.array(good_envs)
-
-                        compare_after = joblib.Parallel(n_jobs=self.actors)(joblib.delayed(self.comparison)
-                                                                            (generalist_weights, i)
-                                                                            for i in range(len(self.variations)))
-
-                        generalist_fitness_scores = np.array(compare_after)
-                        new_generalist_avg_fit = np.mean(generalist_fitness_scores)
-
-                        if new_generalist_avg_fit < generalist_avg_fit:
-                            good_fitness_scores = generalist_fitness_scores.copy()
-
-                        env_counter = len(self.variations) - 1
                         improved = searcher.status.get('iter')
-
                         print(' no_envs : ', len(self.variations))
-
-                        problem = Eval(self.variations, self.cpg_network_structure, env_counter)
-                        searcher = XNES(problem, stdev_init=self.initial_stdev)
-
-
-
-
 
             # if there is only one morphology generalist = xbest
             elif len(self.variations) == 1:
@@ -225,8 +249,7 @@ class Algo:
             if generalist_avg_fit > self.max_fitness:
                 print('Found best')
                 break
-            end = time.time()
-            print('Time', end - start)
+
         # data logging
         evals = pandas_logger.to_dataframe()
 
@@ -236,8 +259,8 @@ class Algo:
         evals['no_envs'] = number_environments
 
         generalist_evals = pd.DataFrame(
-            {'Mean': generalist_average_fitness_history, 'STD': fitness_std_deviation_history,
-             'Best': generalist_min_fitness_history, 'Worst': generalist_max_fitness_history})
+            {'Mean': generalist_avg_history, 'STD': general_std_history,
+             'Best': general_min_fitness_history, 'Worst': general_max_fitness_history})
 
         info = '{}_{}_{}'.format(self.run_id, self.cluster_id, self.seed)
 

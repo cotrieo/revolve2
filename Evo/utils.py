@@ -12,6 +12,7 @@ from revolve2.simulators.mujoco import LocalRunner
 
 def generate_morphologies(parameter1_range, parameter2_range):
     morphologies = np.array(np.meshgrid(parameter1_range, parameter2_range)).T.reshape(-1, 2)
+    morphologies = np.append(morphologies, [0, 0.0]).reshape(-1, 2)
     return morphologies
 
 

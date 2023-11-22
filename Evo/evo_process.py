@@ -210,7 +210,7 @@ class Algo:
                         plt.show()
 
                 # check if evolution has stagnated
-                if (searcher.status.get('iter') - improved) % int(np.ceil(self.max_eval * 0.05)) == 0:
+                if (searcher.status.get('iter') - improved) % int(np.ceil(self.max_eval * 0.1)) == 0:
 
                     if current_pop_best_fitness != prev_pop_best_fitness:
                         prev_pop_best_fitness = current_pop_best_fitness

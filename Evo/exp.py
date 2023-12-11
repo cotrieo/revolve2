@@ -16,7 +16,7 @@ def experiment_run(config):
 
         while len(variations) != 0:
             cluster_count += 1
-            i += 100
+            i += 101
             path = f"{folder_name}/"
             os.makedirs(path, exist_ok=True)
             run = Algo(path=path, variations=variations,

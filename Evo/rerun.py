@@ -38,7 +38,7 @@ if __name__ == "__main__":
         if file.endswith('pt'):
             print(file)
             agent = torch.load(f'{path}/{type}/{file}')
-            compare = joblib.Parallel(n_jobs=1)(joblib.delayed(comparison)(agent, i)
+            compare = joblib.Parallel(n_jobs=4, require='sharedmem')(joblib.delayed(comparison)(agent, i)
                                                           for i in range(len(variations)))
             fitnesses = np.array(compare)
             sns.heatmap(np.array(fitnesses).reshape(6, len(vars)), vmin=0, vmax=4, cmap='rocket_r')

@@ -13,7 +13,8 @@ from revolve2.simulators.mujoco import LocalRunner
 
 def generate_morphologies(parameter1_range, parameter2_range):
     morphologies = np.array(np.meshgrid(parameter1_range, parameter2_range)).T.reshape(-1, 2)
-    morphologies = np.append(morphologies, [0, 0.0]).reshape(-1, 2)
+    morphologies = np.append(morphologies, [0, 0.0]).reshape((morphologies.shape[0]+1), 2)
+    morphologies[:, 0], morphologies[:, 1] = morphologies[:, 1], morphologies[:, 0].copy()
     return morphologies
 
 
@@ -63,7 +64,7 @@ def evaluate2(agent, cpg_network_structure, body):
 
     batch = create_batch_single_robot_standard(robot=robot, terrain=terrains.flat())
     runner = LocalRunner(headless=True)
-    results = runner.run_batch(batch)
+    results = asyncio.run(runner.run_batch(batch))
 
     environment_results = results.environment_results[0]
 

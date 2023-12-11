@@ -223,7 +223,7 @@ class LocalRunner(Runner):
 
         return results
 
-    def run_batch(
+    async def run_batch(
         self, batch: Batch, record_settings: RecordSettings | None = None
     ) -> BatchResults:
         """

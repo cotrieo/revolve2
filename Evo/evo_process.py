@@ -49,7 +49,7 @@ class Eval(Problem):
 
         batch = create_batch_single_robot_standard(robot=robot, terrain=terrains.flat())
         runner = LocalRunner(headless=True)
-        results = runner.run_batch(batch)
+        results = asyncio.run(runner.run_batch(batch))
 
         environment_results = results.environment_results[0]
 
@@ -71,8 +71,7 @@ class Eval(Problem):
 
         return xy_displacement - penalty
 
-    def printer(self, no, sets):
-        print(no, self.evals(sets))
+
     def _evaluate_batch(self, solutions: SolutionBatch):
         solutions.set_evals(
             torch.FloatTensor(joblib.Parallel(n_jobs=self.no_actors, require='sharedmem')(joblib.delayed(self.evals)(i) for i in solutions.values)))
@@ -90,6 +89,7 @@ class Eval(Problem):
         fitness = evaluate2(agent,
                             self.cpg_network_structure,
                             modified.select_morph(self.variations[i]))
+        print(fitness)
         return fitness
 
     def split(self, good_fitness_scores, generalist_avg_fit, generalist_dev, generalist_weights):
@@ -170,7 +170,7 @@ class Algo:
         general_std_history = []
         general_min_fitness_history = []
         general_max_fitness_history = []
-
+        cn = 0
         pandas_logger = PandasLogger(searcher)
         print('Number of Environments: ', len(self.variations))
         logger = StdOutLogger(searcher, interval=1)
@@ -181,23 +181,25 @@ class Algo:
             # take one step of the evolution and identify the best individual of a generation
             searcher.step()
             index_best = searcher.population.argbest()
-
             xbest_weights = searcher.population[index_best].values
-            fitness = evaluate2(xbest_weights, self.cpg_network_structure, modified.select_morph([0, 0.0]))
-            print(fitness)
+
             # if current best fitness is smaller than new best fitness replace the current fitness and xbest
             if current_pop_best_fitness < searcher.status.get('best_eval'):
                 current_pop_best_fitness = searcher.status.get('best_eval')
                 improved = searcher.status.get('iter')
                 self.xbest = xbest_weights.detach().clone()
 
+            # fitness = evaluate2(xbest_weights.detach().clone(),
+            #                         self.cpg_network_structure,
+            #                         modified.select_morph(self.variations[cn]))
+            # cn +=1
+            # print(fitness)
+
             # if we are running more than 1 variation
             if len(self.variations) > 1:
-
                 # test xbest on all individuals in the morphology set
-                compare = joblib.Parallel(n_jobs=self.actors, require='sharedmem')(joblib.delayed(self.comparison)(xbest_weights, i)
+                compare = joblib.Parallel(n_jobs=self.actors, require='sharedmem')(joblib.delayed(self.comparison)(xbest_weights.detach().clone(), i)
                                                               for i in range(len(self.variations)))
-
                 generalist_scores = np.array(compare)
 
                 # check the average fitness score of the morphologies
@@ -215,11 +217,11 @@ class Algo:
                     generalist_avg_fit = new_avg_fit
                     generalist_std = generalist_new_std
 
-                    print('Generalist score: ', generalist_avg_fit)
+                    print('Generalist score: ', generalist_avg_fit, generalist_std)
 
                     good_fitness_scores = generalist_scores.copy()
                     generalist_weights = xbest_weights.detach().clone()
-                    print(generalist_weights)
+
 
                 # check if evolution has stagnated
                 if (searcher.status.get('iter') - improved) % int(np.ceil(self.max_eval * 0.1)) == 0:

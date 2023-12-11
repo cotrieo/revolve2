@@ -65,6 +65,7 @@ class BrainCpgNetworkStatic(Brain):
                 list(params)
             )
         )
+
         dof_ranges = cpg_network_structure.make_uniform_dof_ranges(dof_range_uniform)
         return BrainCpgNetworkStatic(
             initial_state,

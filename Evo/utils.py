@@ -3,6 +3,7 @@ import asyncio
 import math
 import torch
 import numpy as np
+from revolve2.examples.evaluate_single_robot import modified
 from revolve2.ci_group import fitness_functions, terrains
 from revolve2.ci_group.simulation import create_batch_single_robot_standard
 from revolve2.modular_robot import ModularRobot, get_body_states_single_robot
@@ -52,7 +53,7 @@ def save_dataframes(evals, best, generalist, generalist_evals, info, path):
 
 def evaluate2(agent, cpg_network_structure, body):
     brain = BrainCpgNetworkStatic.create_simple(
-        params=np.array(agent),
+        params=agent,
         cpg_network_structure=cpg_network_structure,
         initial_state_uniform=math.pi / 2.0,
         dof_range_uniform=1.0,
@@ -62,7 +63,7 @@ def evaluate2(agent, cpg_network_structure, body):
 
     batch = create_batch_single_robot_standard(robot=robot, terrain=terrains.flat())
     runner = LocalRunner(headless=True)
-    results = asyncio.run(runner.run_batch(batch))
+    results = runner.run_batch(batch)
 
     environment_results = results.environment_results[0]
 
@@ -71,6 +72,16 @@ def evaluate2(agent, cpg_network_structure, body):
     )
 
     xy_displacement = fitness_functions.xy_displacement(
-        body_state_begin, body_state_end
-    )
+        body_state_begin, body_state_end)
+
     return xy_displacement
+#
+# if __name__=='__main__':
+#     data = torch.load('/Users/corinnatriebold/Developer/revolve2/revolve2/Evo/Results_Generalists/generalist/0_1_691834_generalist.pt')
+#     data2 = torch.load('/Users/corinnatriebold/Developer/revolve2/revolve2/Evo/Results_Generalist/generalist/9_1_435677_generalist.pt')
+#     file = open('brain', 'rb')
+#     cpg_network_structure = pickle.load(file)
+    # evaluate2(data, cpg_network_structure, modified.select_morph([0, 0.0]))
+#     #during evo punish if you are out of bounds, trim them
+    #L1 norm of the vector (absolute value)
+    #before fitness eval hook and look at tensors and apply the constraints on them

@@ -7,6 +7,7 @@ import pickle
 import seaborn as sns
 import matplotlib.pyplot as plt
 import pandas as pd
+import multiprocessing
 import numpy as np
 from revolve2.ci_group import fitness_functions, terrains, modular_robots
 from revolve2.ci_group.simulation import create_batch_single_robot_standard
@@ -19,10 +20,11 @@ from evotorch.logging import StdOutLogger, PandasLogger
 from evotorch.algorithms import XNES
 from utils import save_dataframes, evaluate2
 from evotorch import SolutionBatch
+torch.set_printoptions(precision=30)
 
 
 class Eval(Problem):
-    def __init__(self, variations, cpg, counter):
+    def __init__(self, variations, cpg, counter, actors):
         super().__init__(
             objective_sense="max",
             solution_length=13,
@@ -33,11 +35,11 @@ class Eval(Problem):
         self.env_counter = counter
         self.parameters = self.variations[self.env_counter]
         self.cpg_network_structure = cpg
+        self.no_actors = actors
 
-    def evals(self, agent: torch.Tensor) -> float:
-
+    def evals(self, agent):
         brain = BrainCpgNetworkStatic.create_simple(
-            params=np.array(agent),
+            params=agent,
             cpg_network_structure=self.cpg_network_structure,
             initial_state_uniform=math.pi / 2.0,
             dof_range_uniform=1.0,
@@ -47,7 +49,7 @@ class Eval(Problem):
 
         batch = create_batch_single_robot_standard(robot=robot, terrain=terrains.flat())
         runner = LocalRunner(headless=True)
-        results = asyncio.run(runner.run_batch(batch))
+        results = runner.run_batch(batch)
 
         environment_results = results.environment_results[0]
 
@@ -58,11 +60,22 @@ class Eval(Problem):
         xy_displacement = fitness_functions.xy_displacement(
             body_state_begin, body_state_end)
 
-        return xy_displacement
+        penalty = 0
+        for l in range(len(np.array(agent))):
+            if np.array(agent)[l] >= 2:
+                penalty += np.sum(np.absolute(np.array(agent)))
+            elif np.array(agent)[l] <= -2:
+                penalty += np.sum(np.absolute(np.array(agent)))
+            else:
+                penalty = 0
 
+        return xy_displacement - penalty
+
+    def printer(self, no, sets):
+        print(no, self.evals(sets))
     def _evaluate_batch(self, solutions: SolutionBatch):
         solutions.set_evals(
-            torch.FloatTensor(joblib.Parallel(n_jobs=6)(joblib.delayed(self.evals)(i) for i in solutions.values)))
+            torch.FloatTensor(joblib.Parallel(n_jobs=self.no_actors, require='sharedmem')(joblib.delayed(self.evals)(i) for i in solutions.values)))
         if len(self.variations) > 1:
             self.env_counter += 1
         else:
@@ -74,7 +87,6 @@ class Eval(Problem):
         self.parameters = self.variations[self.env_counter]
 
     def comparison(self, agent, i):
-
         fitness = evaluate2(agent,
                             self.cpg_network_structure,
                             modified.select_morph(self.variations[i]))
@@ -102,7 +114,7 @@ class Eval(Problem):
         # replace set of variations with only the good variations and re-check their fitness
         self.variations = np.array(good_envs)
 
-        compare_after = joblib.Parallel(n_jobs=4)(joblib.delayed(self.comparison)
+        compare_after = joblib.Parallel(n_jobs=self.no_actors, require='sharedmem')(joblib.delayed(self.comparison)
                                                   (generalist_weights, i)
                                                   for i in range(len(self.variations)))
 
@@ -128,6 +140,7 @@ class Algo:
         self.seed = random.randint(0, 1000000)
         file = open('brain', 'rb')
         self.cpg_network_structure = pickle.load(file)
+        self.xbest = 0
 
     def comparison(self, agent, i):
         fitness = evaluate2(agent,
@@ -135,10 +148,11 @@ class Algo:
                             modified.select_morph(self.variations[i]))
         return fitness
 
+
     # main function to run the evolution
     def main(self):
 
-        problem = Eval(self.variations, self.cpg_network_structure, 0)
+        problem = Eval(self.variations, self.cpg_network_structure, 0, self.actors)
         searcher = XNES(problem, stdev_init=self.initial_stdev)
 
         improved = 0
@@ -160,27 +174,29 @@ class Algo:
         pandas_logger = PandasLogger(searcher)
         print('Number of Environments: ', len(self.variations))
         logger = StdOutLogger(searcher, interval=1)
-        torch.set_printoptions(precision=30)
+        # torch.set_printoptions(precision=30)
 
         while generation < self.max_eval:
 
             # take one step of the evolution and identify the best individual of a generation
             searcher.step()
             index_best = searcher.population.argbest()
-            xbest_weights = searcher.population[index_best].values
 
+            xbest_weights = searcher.population[index_best].values
+            fitness = evaluate2(xbest_weights, self.cpg_network_structure, modified.select_morph([0, 0.0]))
+            print(fitness)
             # if current best fitness is smaller than new best fitness replace the current fitness and xbest
             if current_pop_best_fitness < searcher.status.get('best_eval'):
                 current_pop_best_fitness = searcher.status.get('best_eval')
                 improved = searcher.status.get('iter')
-                xbest = xbest_weights.detach().clone()
+                self.xbest = xbest_weights.detach().clone()
 
             # if we are running more than 1 variation
             if len(self.variations) > 1:
 
                 # test xbest on all individuals in the morphology set
-                compare = joblib.Parallel(n_jobs=self.actors)(joblib.delayed(self.comparison)(xbest, i)
-                                                              for i in range(len(generalist_scores)))
+                compare = joblib.Parallel(n_jobs=self.actors, require='sharedmem')(joblib.delayed(self.comparison)(xbest_weights, i)
+                                                              for i in range(len(self.variations)))
 
                 generalist_scores = np.array(compare)
 
@@ -203,11 +219,7 @@ class Algo:
 
                     good_fitness_scores = generalist_scores.copy()
                     generalist_weights = xbest_weights.detach().clone()
-
-                    # REMOVE LATER - ONLY FOR TESTING
-                    if len(self.variations) == 25:
-                        sns.heatmap(generalist_scores.reshape((5, 5)), vmin=-5, vmax=5, annot=True)
-                        plt.show()
+                    print(generalist_weights)
 
                 # check if evolution has stagnated
                 if (searcher.status.get('iter') - improved) % int(np.ceil(self.max_eval * 0.1)) == 0:
@@ -239,7 +251,7 @@ class Algo:
             # if there is only one morphology generalist = xbest
             elif len(self.variations) == 1:
                 generalist_avg_fit = current_pop_best_fitness
-                generalist_weights = xbest
+                generalist_weights = self.xbest
 
             # track the number of envs
             number_environments.append(len(self.variations))
@@ -263,8 +275,8 @@ class Algo:
              'Best': general_min_fitness_history, 'Worst': general_max_fitness_history})
 
         info = '{}_{}_{}'.format(self.run_id, self.cluster_id, self.seed)
-
-        save_dataframes(evals, xbest, generalist_weights, generalist_evals, info, self.path)
+        print(self.xbest)
+        save_dataframes(evals, self.xbest, generalist_weights, generalist_evals, info, self.path)
 
         plt.plot(evals['best_eval'])
         plt.ylabel('Fitness')

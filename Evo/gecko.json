@@ -8,6 +8,6 @@
     "//comment": "Parameter1 is the servos",
     "parameter1":  [-1.3, -0.9, -0.7, -0.5, -0.3, 0.0, 0.3, 0.5, 0.7, 0.9, 1.3],
     "//comment2": "Parameter2 is angle at which the servo is stuck",
-    "parameter2": [1, 2, 3, 4, 5, 6],
-    "actors": 5
+    "parameter2": [1,2,3,4,5,6],
+    "actors": 4
 }

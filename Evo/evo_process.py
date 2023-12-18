@@ -53,23 +53,28 @@ class Eval(Problem):
 
         environment_results = results.environment_results[0]
 
+
         body_state_begin, body_state_end = get_body_states_single_robot(
             body, environment_results
         )
 
         xy_displacement = fitness_functions.xy_displacement(
             body_state_begin, body_state_end)
-
+        # print(body_state_begin, body_state_end)
         penalty = 0
-        for l in range(len(np.array(agent))):
-            if np.array(agent)[l] >= 2:
-                penalty += np.sum(np.absolute(np.array(agent)))
-            elif np.array(agent)[l] <= -2:
-                penalty += np.sum(np.absolute(np.array(agent)))
-            else:
-                penalty = 0
+        # penalty = np.sum(np.absolute(np.array(agent))) * 0.01
+        # print(xy_displacement, penalty)
+        # for l in np.array(agent):
+        #     if l >= 2:
+        #         penalty += np.sum(np.absolute(np.array(agent)))
+        #         # penalty += 100
+        #     elif l <= -2:
+        #         penalty += np.sum(np.absolute(np.array(agent)))
+        #         # penalty += 100
+        #     else:
+        #         penalty += 0
 
-        return xy_displacement - penalty
+        return (xy_displacement - penalty)
 
 
     def _evaluate_batch(self, solutions: SolutionBatch):
@@ -88,8 +93,7 @@ class Eval(Problem):
     def comparison(self, agent, i):
         fitness = evaluate2(agent,
                             self.cpg_network_structure,
-                            modified.select_morph(self.variations[i]))
-        print(fitness)
+                            modified.select_morph(self.variations[i]), True)
         return fitness
 
     def split(self, good_fitness_scores, generalist_avg_fit, generalist_dev, generalist_weights):
@@ -98,7 +102,7 @@ class Eval(Problem):
         bad_envs = []
 
         for i in range(len(self.variations)):
-            if good_fitness_scores[i] < (generalist_avg_fit + generalist_dev):
+            if good_fitness_scores[i] > (generalist_avg_fit - generalist_dev):
                 good_envs.append(self.variations[i])
             else:
                 # add underperformed variations to bin
@@ -145,7 +149,7 @@ class Algo:
     def comparison(self, agent, i):
         fitness = evaluate2(agent,
                             self.cpg_network_structure,
-                            modified.select_morph(self.variations[i]))
+                            modified.select_morph(self.variations[i]), True)
         return fitness
 
 
@@ -189,12 +193,6 @@ class Algo:
                 improved = searcher.status.get('iter')
                 self.xbest = xbest_weights.detach().clone()
 
-            # fitness = evaluate2(xbest_weights.detach().clone(),
-            #                         self.cpg_network_structure,
-            #                         modified.select_morph(self.variations[cn]))
-            # cn +=1
-            # print(fitness)
-
             # if we are running more than 1 variation
             if len(self.variations) > 1:
                 # test xbest on all individuals in the morphology set
@@ -218,6 +216,12 @@ class Algo:
                     generalist_std = generalist_new_std
 
                     print('Generalist score: ', generalist_avg_fit, generalist_std)
+                    print(generalist_weights)
+                    print(generalist_scores)
+                    if generalist_avg_fit > 0.5:
+                        fitness = evaluate2(generalist_weights,
+                                        self.cpg_network_structure,
+                                        modified.select_morph([0, 0.0]), False)
 
                     good_fitness_scores = generalist_scores.copy()
                     generalist_weights = xbest_weights.detach().clone()

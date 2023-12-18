@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
-
+import numpy.typing as npt
 from pyrr import Quaternion, Vector3
 
 

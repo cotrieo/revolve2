@@ -52,7 +52,7 @@ def save_dataframes(evals, best, generalist, generalist_evals, info, path):
         save_dataframe(dataframe, os.path.join(path, subdir), filename)
 
 
-def evaluate2(agent, cpg_network_structure, body):
+def evaluate2(agent, cpg_network_structure, body, visu):
     brain = BrainCpgNetworkStatic.create_simple(
         params=agent,
         cpg_network_structure=cpg_network_structure,
@@ -63,7 +63,7 @@ def evaluate2(agent, cpg_network_structure, body):
     robot = ModularRobot(body, brain)
 
     batch = create_batch_single_robot_standard(robot=robot, terrain=terrains.flat())
-    runner = LocalRunner(headless=True)
+    runner = LocalRunner(headless=visu)
     results = asyncio.run(runner.run_batch(batch))
 
     environment_results = results.environment_results[0]
@@ -74,8 +74,9 @@ def evaluate2(agent, cpg_network_structure, body):
 
     xy_displacement = fitness_functions.xy_displacement(
         body_state_begin, body_state_end)
-
-    return xy_displacement
+    # penalty = np.sum(np.absolute(np.array(agent))) * 0.01
+    penalty = 0
+    return (xy_displacement - penalty)
 #
 # if __name__=='__main__':
 #     data = torch.load('/Users/corinnatriebold/Developer/revolve2/revolve2/Evo/Results_Generalists/generalist/0_1_691834_generalist.pt')

@@ -21,23 +21,16 @@ def xy_displacement(begin_state: BodyState, end_state: BodyState) -> float:
     :param end_state: End state of the robot.
     :returns: The calculated fitness.
     """
-    # if end_state.core_orientation[0] < 0:
-    #     penalty = -2
-    # else:
-    #     penalty = 0
+    if end_state.core_orientation[0] < 0:
+        penalty = 2
+    else:
+        penalty = 0
 
-    # return math.sqrt(
-    #     (begin_state.core_position[0] - end_state.core_position[0]) ** 2  # x-position
-        # + ((begin_state.core_position[1] - end_state.core_position[1]) ** 2) # y-position
-
-    # )
-    # print((begin_state.core_position[1] - end_state.core_position[1]) ** 2)
-
-    # x_mov = begin_state.core_position[0] - end_state.core_position[0]
+    y_mov = begin_state.core_position[1] - end_state.core_position[1] * 0.5
 
     x_mov = end_state.core_position[0] - begin_state.core_position[0]
 
-    return x_mov
+    return x_mov - y_mov - penalty
 
 def get_fitness(states: List[EnvironmentState]) -> float:
     """

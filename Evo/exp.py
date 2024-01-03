@@ -15,13 +15,17 @@ def experiment_run(config):
         folder_name = config['filename']
 
         while len(variations) != 0:
-            cluster_count += 1
-            path = f"{folder_name}/"
-            os.makedirs(path, exist_ok=True)
-            run = Algo(path=path, variations=variations,
-                       config=config, generation=generations, run_id=i, cluster_id=cluster_count)
-            generation, variations = run.main()
-            generations = generations - generation
+            if generations > 1:
+                cluster_count += 1
+                i += 4
+                path = f"{folder_name}/"
+                os.makedirs(path, exist_ok=True)
+                run = Algo(path=path, variations=variations,
+                           config=config, generation=generations, run_id=i, cluster_id=cluster_count)
+                generation, variations = run.main()
+                generations = generations - generation
+            else:
+                break
 
 if __name__ == "__main__":
     config = json.load(open('gecko.json'))

@@ -74,8 +74,12 @@ def evaluate2(agent, cpg_network_structure, body, visu):
 
     xy_displacement = fitness_functions.xy_displacement(
         body_state_begin, body_state_end)
-    # penalty = np.sum(np.absolute(np.array(agent))) * 0.01
-    penalty = 0
+
+    size = np.sum(np.absolute(np.array(agent)))
+    if size > 5:
+        penalty = np.sum(np.absolute(np.array(agent))) * 0.5
+    else:
+        penalty = 0
     return (xy_displacement - penalty)
 #
 # if __name__=='__main__':

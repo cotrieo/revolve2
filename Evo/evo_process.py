@@ -60,19 +60,13 @@ class Eval(Problem):
 
         xy_displacement = fitness_functions.xy_displacement(
             body_state_begin, body_state_end)
-        # print(body_state_begin, body_state_end)
-        penalty = 0
-        # penalty = np.sum(np.absolute(np.array(agent))) * 0.01
-        # print(xy_displacement, penalty)
-        # for l in np.array(agent):
-        #     if l >= 2:
-        #         penalty += np.sum(np.absolute(np.array(agent)))
-        #         # penalty += 100
-        #     elif l <= -2:
-        #         penalty += np.sum(np.absolute(np.array(agent)))
-        #         # penalty += 100
-        #     else:
-        #         penalty += 0
+
+        size = np.sum(np.absolute(np.array(agent)))
+
+        if size > 5:
+            penalty = np.sum(np.absolute(np.array(agent))) * 0.5
+        else:
+            penalty = 0
 
         return (xy_displacement - penalty)
 
@@ -106,7 +100,7 @@ class Eval(Problem):
                 good_envs.append(self.variations[i])
             else:
                 # add underperformed variations to bin
-                bad_envs.append(list(self.variations[i]))
+                bad_envs.append(self.variations[i])
 
         if len(good_envs) == 0:
             print('No more envs')
@@ -214,21 +208,26 @@ class Algo:
                 if generalist_avg_fit < new_avg_fit:
                     generalist_avg_fit = new_avg_fit
                     generalist_std = generalist_new_std
+                    good_fitness_scores = generalist_scores.copy()
+                    generalist_weights = xbest_weights.detach().clone()
 
                     print('Generalist score: ', generalist_avg_fit, generalist_std)
                     print(generalist_weights)
                     print(generalist_scores)
-                    if generalist_avg_fit > 0.5:
-                        fitness = evaluate2(generalist_weights,
-                                        self.cpg_network_structure,
-                                        modified.select_morph([0, 0.0]), False)
 
+
+                elif new_avg_fit >= (generalist_avg_fit * 0.9) and generalist_new_std < generalist_std:
+                    generalist_avg_fit = new_avg_fit
+                    generalist_std = generalist_new_std
                     good_fitness_scores = generalist_scores.copy()
                     generalist_weights = xbest_weights.detach().clone()
 
+                    print('Generalist score: ', generalist_avg_fit, generalist_std)
+                    print(generalist_weights)
+                    print(generalist_scores)
 
                 # check if evolution has stagnated
-                if (searcher.status.get('iter') - improved) % int(np.ceil(self.max_eval * 0.1)) == 0:
+                if (searcher.status.get('iter') - improved) % int(np.ceil(self.max_eval * 0.2)) == 0:
 
                     if current_pop_best_fitness != prev_pop_best_fitness:
                         prev_pop_best_fitness = current_pop_best_fitness

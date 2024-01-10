@@ -13,11 +13,12 @@ def experiment_run(config):
         cluster_count = 0
         generations = config['generations']
         folder_name = config['filename']
+        i += 20
 
         while len(variations) != 0:
             if generations > 1:
                 cluster_count += 1
-                i += 4
+
                 path = f"{folder_name}/"
                 os.makedirs(path, exist_ok=True)
                 run = Algo(path=path, variations=variations,

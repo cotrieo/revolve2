@@ -227,7 +227,7 @@ class Algo:
                     print(generalist_scores)
 
                 # check if evolution has stagnated
-                if (searcher.status.get('iter') - improved) % int(np.ceil(self.max_eval * 0.2)) == 0:
+                if (searcher.status.get('iter') - improved) % 100 == 0:
 
                     if current_pop_best_fitness != prev_pop_best_fitness:
                         prev_pop_best_fitness = current_pop_best_fitness

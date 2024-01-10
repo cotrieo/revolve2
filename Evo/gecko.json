@@ -4,10 +4,10 @@
     "initial_bounds": [-0.1, 0.1],
     "generations": 500,
     "filename": "Results_Generalist",
-    "runs": 1,
+    "runs": 4,
     "//comment": "Parameter1 is the servos",
     "parameter1":  [0.0, 0.2, 0.4, 0.6, 0.8, 1.0, 1.2],
     "//comment2": "Parameter2 is angle at which the servo is stuck",
     "parameter2": [1,2,3,4,5,6],
-    "actors": 5
+    "actors": 4
 }
